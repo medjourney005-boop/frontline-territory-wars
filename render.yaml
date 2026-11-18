@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: frontline-territory-wars-online
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    healthCheckPath: /health

@@ -1,0 +1,16 @@
+FRONTLINE V18 ONLINE VIA RENDER (GRATIS)
+
+1. Open https://github.com/new en maak een repository 'frontline-territory-wars' (Public is het makkelijkst; geen README aanvinken).
+2. Open de lege repository en kies 'uploading an existing file' (of Add file > Upload files).
+3. Sleep alle bestanden en mappen van DEZE uitgepakte map naar GitHub. Upload de ZIP zelf NIET.
+4. Klik op 'Commit changes'. Controleer dat package.json, server.js, game.js, render.yaml en de map public zichtbaar zijn.
+5. Open https://dashboard.render.com/ en log in.
+6. Klik New > Web Service, koppel GitHub en kies de repository.
+7. Kies Node, de branch main, 'Free' als instance-plan, Build Command: npm install, Start Command: npm start.
+8. Klik op Deploy Web Service en open de verstrekte HTTPS-link wanneer de status Live is.
+9. Open de website, maak een kamer en deel de uitnodigingslink via de knop 'Deel uitnodigingslink'.
+
+KOSTEN: kies nadrukkelijk 'Free'; betaalde abonnementen niet activeren.
+BEPERKING: Gratis web services kunnen na 15 minuten zonder verkeer slapen en bij een restart lopende matches verliezen. Render geeft de precieze gebruikslimieten aan.
+
+De meegeleverde render.yaml is gecorrigeerd naar 'plan: free' (het origineel had 'plan: starter', een betaald plan). De game zelf is verder ongewijzigd.

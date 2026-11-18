@@ -1,0 +1,727 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FRONTLINE | Territory Wars V17 · Battlefield Options</title><style>
+:root{color-scheme:dark;--bg:#0b1119;--panel:#141f2c;--panel2:#1c2938;--stroke:#34485b;--ink:#e9f1f5;--muted:#9daeba;--blue:#67d7eb;--gold:#f6bf68;--red:#ee8180}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px system-ui,Segoe UI,Arial}.app{height:100dvh;display:flex;flex-direction:column;min-height:540px}header{height:68px;flex-shrink:0;display:flex;gap:16px;align-items:center;padding:10px 19px;border-bottom:1px solid var(--stroke);background:#111c29}.brand{font:900 27px Impact,Arial Narrow,sans-serif;letter-spacing:1.8px;white-space:nowrap}.brand span{color:var(--blue)}.brand small{display:block;font:700 9px system-ui;letter-spacing:2px;color:var(--muted)}.hud{display:flex;align-items:center;justify-content:flex-end;gap:20px;flex:1}.stat small{display:block;font-size:9px;color:#92a5b2;letter-spacing:1px;font-weight:700}.stat strong{font-size:21px;font-weight:850}.gold{color:var(--gold)}.aqua{color:var(--blue)}.main{min-height:0;flex:1;display:grid;grid-template-columns:246px minmax(0,1fr) 242px}.sidebar{overflow:auto;background:var(--panel);padding:15px;border-right:1px solid var(--stroke);scrollbar-width:thin}.sidebar.right{border-left:1px solid var(--stroke);border-right:0}.section{font:800 12px system-ui;letter-spacing:1.3px;color:#b5c9da;margin:11px 0}.purchase{width:100%;display:flex;gap:10px;align-items:center;text-align:left;margin:5px 0;padding:10px;background:#1a2939;border:1px solid #304457;border-radius:9px;cursor:pointer;color:var(--ink)}.purchase:hover,.purchase.active{border-color:var(--blue);background:#204050}.purchase .emblem{font-size:20px;background:#283b4a;padding:7px;border-radius:7px;min-width:37px;text-align:center}.purchase span{flex:1}.purchase b{display:block;font-size:12px}.purchase small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.purchase em{color:var(--gold);font-size:17px;font-style:normal;font-weight:900}button,select{border:1px solid #3b5368;background:#213247;color:var(--ink);border-radius:7px;padding:8px 10px;cursor:pointer;font:700 11px system-ui}button:hover{background:#31506a}button:disabled{opacity:.4}.btnrow{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:8px 0}.full{width:100%;margin-bottom:6px}.help{color:#aec0cf;font-size:11px;line-height:1.65}.sep{height:1px;background:#354558;margin:14px 0}.arena{position:relative;overflow:hidden;background:#243a30;min-width:0;min-height:0}.arena canvas{width:100%;height:100%;display:block;touch-action:none}.floating{position:absolute;top:14px;left:14px;padding:10px 13px;background:#101b27e8;border:1px solid #49606c;border-radius:9px;pointer-events:none;max-width:300px}.floating b{letter-spacing:1.2px}.floating small{display:block;color:#acbeca;margin-top:4px;line-height:1.5}.toast{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);background:#111e2be8;border:1px solid #567086;border-radius:8px;padding:9px 13px;font-size:11px;text-align:center;pointer-events:none;max-width:90%}.target{padding:10px;margin:7px 0;background:#1b2b3a;border:1px solid #32485b;border-radius:9px}.target .line{display:flex;justify-content:space-between;gap:8px;font-size:11px;font-weight:750}.target small{font-size:10px;color:var(--muted)}.bar{height:6px;background:#334553;border-radius:10px;margin-top:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue)}.feed{font-size:11px;line-height:1.5;color:#aebfce}.feed div{padding:7px 0;border-bottom:1px solid #304050}.overlay{position:absolute;inset:0;background:#08141ded;display:flex;align-items:center;justify-content:center;z-index:5;backdrop-filter:blur(5px)}.modal{width:min(720px,96%);max-height:94vh;overflow:auto;border:1px solid #5a8294;background:linear-gradient(135deg,#203848,#101c2b);box-shadow:0 22px 80px #000b;border-radius:15px;padding:28px;text-align:center}.modal h1{font:900 43px Impact,Arial,sans-serif;letter-spacing:2px;margin:8px 0}.modal p{color:#b7c9d7;font-size:12px;line-height:1.7}.modal label{display:block;text-align:left;color:#b8c9d8;margin:14px 0 5px;font-size:11px;font-weight:750}.modal select{width:100%;padding:10px}.previewWrap{position:relative;margin-top:12px;background:#14292d;border:1px solid #587281;border-radius:10px;overflow:hidden}.previewWrap canvas{display:block;width:100%;aspect-ratio:1200/550}.previewLabel{display:flex;justify-content:space-between;text-align:left;font-size:11px;margin-top:7px;color:#b5d2d6}.previewLabel b{color:#d8edf2}.pausedMark{position:absolute;top:10px;right:12px;background:#e8bc68;color:#142333;font-weight:900;letter-spacing:1px;border-radius:5px;padding:6px 10px;pointer-events:none;z-index:2}.pausedMark[hidden]{display:none}.primary{background:#69d8e9;color:#10232e;font-weight:900;font-size:13px;border:0;padding:13px 23px;margin-top:16px}.key{color:#e8f1f5;font-weight:800}.muted{color:var(--muted)}@media(max-width:1100px){.main{grid-template-columns:200px minmax(0,1fr) 195px}.sidebar{padding:9px}.purchase{padding:7px;gap:5px}.hud{gap:10px}header{padding:8px}.brand{font-size:23px}}@media(max-width:720px){.app{height:auto;min-height:100dvh}.main{display:flex;flex-direction:column}.arena{height:55vh;min-height:380px;order:0}.sidebar{order:1;overflow:visible}.sidebar.right{order:2}.hud{gap:9px}.hud .stat:nth-child(3){display:none}.stat strong{font-size:17px}.brand{font-size:20px}.purchase{display:inline-flex;width:calc(50% - 6px);margin-right:5px}.modal{padding:18px}}
+
+/* V12 — battlefield commanders */
+.hud #openGenerals{color:#f6d99a;border-color:#665637;white-space:nowrap}.general-panel{margin:16px 0 12px;border:1px solid #465b70;border-radius:11px;background:#101d2ad9;overflow:hidden}
+.general-panel summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:5px;font-weight:900;font-size:12px;letter-spacing:.8px;color:#f0d18d;padding:12px;user-select:none}
+.general-panel summary::marker{color:#eac781}
+.general-panel summary span{font-size:10px;color:#c3d2dc;letter-spacing:0;font-weight:700}
+.general-content{padding:0 9px 11px}.general-progress{border-radius:7px;background:#213042;border:1px solid #3d5367;padding:8px;margin-bottom:10px;display:flex;flex-direction:column;gap:3px;font-size:10px}
+.general-progress span{color:#aab9c8}.general-progress .bar{margin-top:4px}.general-progress .bar i{background:linear-gradient(90deg,#c29b55,#ffe3a0)}
+.general-cards{display:flex;flex-direction:column;gap:7px;margin-top:10px}.general-card{background:#1b2b3a;border:1px solid #354b5d;border-radius:9px;padding:9px}
+.general-card.locked{opacity:.69}.general-title{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:800}.general-title b{flex:1}.general-star{font-size:18px;color:#e5ba75}
+.general-card .general-desc{color:#b5c3cc;font-size:10px;line-height:1.5;margin:6px 0 7px}
+.general-card .general-meta{display:flex;justify-content:space-between;gap:5px;font-size:10px;color:#f4d495;font-weight:800}
+.general-card .general-buttons{display:flex;gap:5px;margin-top:8px}.general-card button{flex:1;padding:7px 5px;font-size:10px}.general-card button:disabled{cursor:not-allowed}
+.general-rank{color:#e0c484;font-size:9px;letter-spacing:.2px}.general-aura{position:absolute;pointer-events:none}
+@media(max-width:720px){.general-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}}
+
+/* V13 — separate classic and realistic modes */
+#airliftQuick{border:1px solid #5e897b;color:#cbffe5;background:#224840;white-space:nowrap}#airliftQuick:hover{background:#326157}
+#gameMode{border:1px solid #b79b5a;background:#203b42;color:#f8e6bc;font-weight:900}
+.mode-explainer,.mode-hint{margin:10px 0 4px;padding:10px;border:1px solid #526a71;border-radius:9px;color:#cbd9d8;text-align:left;font-size:11px;line-height:1.65;background:#172d35}
+#realisticSetup{padding:9px 10px 12px;border:1px solid #7c6b46;border-radius:10px;background:#192b2e}
+#realisticSetup[hidden],[hidden]{display:none!important}
+.checkboxrow{display:flex!important;align-items:center;gap:8px;margin:12px 0 3px!important;font-size:12px!important;cursor:pointer}.checkboxrow input{accent-color:#e6be77;transform:scale(1.2)}
+.buildings-panel{margin:14px 0;border:1px solid #826a46;border-radius:10px;background:#17232d;padding:9px}
+.buildings-panel summary{font-size:11px;font-weight:900;color:#f2d292;cursor:pointer;padding:5px 0 10px}.buildings-panel summary span{float:right;color:#91a9aa;font-size:9px}
+.building-shop{display:flex;flex-direction:column;gap:5px;margin-bottom:9px;width:100%;min-width:0}.building-buy{padding:8px 9px;border:1px solid #53636a;display:flex;align-items:center;gap:7px;width:100%;text-align:left;border-radius:7px;color:#dae8e8;background:#22323b}
+.building-buy .b-icon{font-size:19px;width:27px;text-align:center;color:#f3d392}.building-buy .b-body{flex:1}.building-buy .b-body b{display:block;font-size:11px}.building-buy .b-body small{display:block;font-size:10px;color:#adbec5;margin-top:3px}.building-buy .cost{font-size:16px;font-weight:900;color:#f9d08a}.building-buy.active{background:#305360;border-color:#f8ce85}
+.environment-status{padding:5px 8px;border:1px solid #67756b;border-radius:8px;background:#20333b;white-space:nowrap;min-width:120px}.environment-status small{display:block;font-size:9px;letter-spacing:1px;color:#ebcd8f;font-weight:900}.environment-status b{font-size:11px;color:#e1eff1}
+#weatherDetail{line-height:1.6;color:#c4d6dd;font-size:11px}.realistic-object-label{display:flex;gap:10px;align-items:center;font-size:11px;color:#aecbd1;margin:6px 0}
+@media(max-width:1150px){.environment-status{min-width:0}.environment-status small{display:none}.hud{gap:7px}header{padding:8px}}
+@media(max-width:720px){.environment-status{padding:4px}.environment-status b{font-size:10px}.buildings-panel{max-width:100%}}
+/* V16 — independent visibility and ammunition settings, mobile decoys */
+.realistic-options{margin:12px 0;padding:12px;border:1px solid #648e91;border-radius:10px;background:#12313a;text-align:left;line-height:1.5}
+.realistic-options>b{font-size:12px;color:#9ee5eb;letter-spacing:.6px}.realistic-options small{display:block;margin:0 0 9px 26px;color:#a9bdc8;font-size:10px}
+#ammoInfo{margin-top:8px;padding:9px;background:#1b3438;border:1px solid #506e71;border-radius:8px;font-size:11px;line-height:1.6}
+
+.recon-panel{margin:14px 0;border:1px solid #64876f;border-radius:10px;background:#142d32;padding:10px}
+.recon-panel summary{cursor:pointer;color:#a8e9c4;font-weight:900;letter-spacing:.6px;font-size:11px;padding-bottom:7px}
+.recon-panel .purchase{width:100%}.recon-panel .help{margin:8px 0 0}
+.recon-cue{padding:8px;border:1px solid #4e776e;background:#193738;border-radius:7px;color:#c4e8de;margin-top:7px;font-size:11px;line-height:1.6}
+@media(max-width:720px){.recon-panel .purchase{width:100%}}
+</style></head><body><div class="app"><header><div class="brand">FRONT<span>LINE</span><small>TERRITORY WARS / V16 · BATTLEFIELD OPTIONS</small></div><div class="hud"><div class="stat"><small>CREDITS</small><strong id="cash" class="gold">20</strong></div><div class="stat"><small>POSTEN</small><strong id="captures" class="aqua">0/4</strong></div><div class="stat"><small>VIJANDEN</small><strong id="enemies">0</strong></div><div class="stat"><small>KILLS</small><strong id="careerKills" class="gold">0</strong></div><button id="openGenerals" title="Open het generaalsmenu">★ GENERAALS</button><button id="airliftQuick" hidden title="Roep een helikopter met 10 machinegunners op voor 45 credits">🚁 DROP · 45</button><div class="environment-status" id="environmentStatus" hidden><small>REALISTIC BATTLEFIELD</small><b id="environmentLabel">Helder · Dag</b></div><div class="stat"><small>TIJD</small><strong id="clock">00:00</strong></div><button id="pause">Ⅱ</button><button id="restart">↻</button></div></header><div class="main"><aside class="sidebar"><div class="section">REKRUTEER & PLAATS</div><div id="shop"></div><div class="sep"></div><div class="section">VERDEDIGING BOUWEN</div><button class="full" data-tool="wall">▰ Muursegment — 4</button><button class="full" data-tool="sandbag">▱ Zandzakken — 2</button><button class="full" data-tool="turret">⌖ Geschutstoren — 9</button><button class="full" data-tool="minefield">✹ Mijnenveld (muurlengte) — 20</button><button class="full" id="upgrade">Basis versterken — 8</button><div class="help">Plaats een mijnenveld voor 20 credits: even lang als een muur, onzichtbaar voor de vijand totdat het afgaat. Draai met Q/E. Bouw muren in elke richting met <span class="key">Q / E</span> (15°). <b>Selecteer troepen en linksklik op je muur</b> om erachter te schuilen. Muren blokkeren rechtstreeks vuur, granaten en artillerie vliegen erover.</div><div class="sep"></div><details id="realisticBuildings" class="buildings-panel" hidden open>
+<summary>▣ MILITAIRE GEBOUWEN <span>ALLEEN REALISTIC</span></summary>
+<div id="buildingShop" class="building-shop"></div>
+<div class="help">Kies een gebouw, klik in je eigen gebied op een vrije plek. Fabrieken en kazernes geven korting zolang ze intact zijn. Radar toont vijanden op afstand; reparatiedepots herstellen nabijgelegen eenheden.</div>
+</details><details class="recon-panel" id="realisticSpecials" hidden open>
+<summary>✦ SPECIALE EENHEDEN & HELIKOPTER</summary>
+<div id="specialShop"></div>
+<div class="recon-cue"><b>Helikopterdropping:</b> kies het toestel en tik op vrije grond op de kaart. Voor 45 credits vliegt een helikopter naar de gekozen plek en zet tien machinegunners af.<br><b>Verkenner:</b> grote zichtstraal, ontmaskert opblaastanks binnen korte afstand.<br><b>Neptank:</b> rijdt en lokt vijandelijk vuur uit, maar kan nooit schieten; vijandelijke verkenners kunnen hem ontmaskeren.</div>
+</details><div class="section">BEVELVOERING</div><div class="btnrow"><button id="all">Alles selecteren</button><button id="hold">Stop / Blijf</button><button id="retreat">Terugtrekken R</button><button id="load">Instappen</button><button id="unload">Uitstappen</button><button id="cancel">Wis selectie</button></div>
+<details id="generalsPanel" class="general-panel" open>
+ <summary>★ GENERAALS <span id="generalCount">0/8 vrij</span></summary>
+ <div class="general-content">
+  <div class="general-progress"><b id="generalKillInfo">0 totale kills</b><span id="generalNext">Volgende generaal bij 3 kills</span><div class="bar"><i id="generalProgress" style="width:0%"></i></div></div>
+  <div class="help">Verdien generaals door vijandelijke eenheden uit te schakelen. <b>Geen credits nodig.</b> Ontgrendelingen blijven bewaard op dit apparaat. Selecteer je troepen en klik <b>Toewijzen</b>. Een generaal leidt maximaal 20 eenheden en geeft alleen zijn eigen groep een aanvalsbonus.</div>
+  <div id="generalCards" class="general-cards"></div>
+  <button id="dismissGeneral" class="full" type="button">Verwijder generaal van selectie</button>
+ </div>
+</details><div class="help"><span class="key">Linksklik:</span> selecteer of verplaats troepen zonder schietbevel. Kies eerst een eenheid links om met linksklik te spawnen (ook bij bestaande selectie). <span class="key">Links slepen:</span> selecteer groep. <span class="key">Rechtsklik op grond:</span> blijf staan, richt naar de gekozen plek en schiet op vijanden in die richting (binnen bereik). <span class="key">Rechtsklik op vijand:</span> volg en val dat doel aan. <span class="key">Linksklik muur:</span> zoek dekking met geselecteerde troepen. <span class="key">R ingedrukt:</span> terugtrekken in de richting van je basis; loslaten stopt het terugtrekken. <span class="key">H:</span> houd positie. <span class="key">Ctrl:</span> spawn maximaal 10 van de gekozen eenheid bij je basis. <span class="key">Ctrl + linksklik:</span> plaats maximaal 10 rondom de aangewezen plek. <span class="key">Spatie:</span> tactische pauze (plaatsen, bouwen en bevelen mogelijk). <span class="key">M:</span> geluid aan/uit.</div></aside><section class="arena" id="arena"><canvas id="field"></canvas><div class="floating"><b id="mapName">OPERATIE</b><small id="mapNote">Verover 4 posten in 10 sec per stuk. Vernietig daarna de vijandelijke basis en bezet haar 30 sec.</small></div><div class="pausedMark" id="pausedMark" hidden>TACTISCHE PAUZE — BEVELEN EN BOUWEN MOGELIJK</div><div class="toast" id="toast">Selecteer een eenheid links en plaats haar bij je basis.</div><div class="overlay" id="overlay"><div class="modal"><div style="color:#7fdbed;letter-spacing:2px;font-size:11px;font-weight:850">TACTICAL CONQUEST</div><h1 id="modalTitle">FRONTLINE V17</h1><p id="modalDesc">10 unieke slagvelden met voorbeelden, 4 moeilijkheidsgraden en tactische pauze.</p><label for="gameMode">SPELMODUS</label>
+<select id="gameMode"><option value="classic">Classic — originele V12-spelregels</option><option value="realistic">Realistic Battlefield — verkenners, neptanks, helikopters en weer</option></select>
+<div class="mode-explainer" id="modeExplainer">De bekende Frontline-game: dezelfde zes eenheden, bonussen en besturing als V12.</div>
+<div id="realisticSetup" hidden>
+  <div class="realistic-options"><b>REALISTIC GAME · SPELREGELS</b>
+    <label class="checkboxrow"><input type="checkbox" id="noVision"> No Vision — fog of war, beide legers moeten verkennen</label>
+    <small>Uit: alle eenheden zichtbaar. Aan: alleen ontdekte vijanden zichtbaar, ongeacht het weer.</small>
+    <label class="checkboxrow"><input type="checkbox" id="noMunition"> No Munition — beperkte munitie en bevoorrading</label>
+    <small>Uit: onbeperkt schieten. Aan: magazijnen raken leeg; aanvullen bij de basis, depots en bevoorradingswagens.</small>
+  </div>
+  <label for="weatherSelect">BEGINWEER</label><select id="weatherSelect"><option value="clear">Helder</option><option value="rain">Regen</option><option value="fog">Mist</option><option value="snow">Sneeuw</option><option value="random">Willekeurig</option></select>
+  <label for="timeSelect">BEGINTIJD</label><select id="timeSelect"><option value="day">Dag</option><option value="dusk">Schemer</option><option value="night">Nacht</option><option value="dawn">Ochtendgloren</option></select>
+  <label class="checkboxrow"><input type="checkbox" id="dynamicEnvironment" checked> Dynamisch weer en dag/nacht-cyclus</label>
+  <p class="mode-hint">Bij No Vision zijn vijanden alleen zichtbaar na detectie, voor jou en voor de AI. Mist en nacht verkleinen het detectiebereik. Zonder No Vision zijn alle eenheden zichtbaar. Een neptank kan rijden en lokt vuur uit, maar kan niet schieten.</p>
+</div>
+<label for="mapSelect">SLAGVELD</label><select id="mapSelect"></select><div class="previewWrap"><canvas id="mapPreview" width="1200" height="550"></canvas></div><div class="previewLabel"><b id="previewTitle">Slagveld</b><span id="previewDesc"></span></div><label for="difficulty">MOEILIJKHEIDSGRAAD</label><select id="difficulty"><option value="easy">Rekruut — rustig</option><option value="normal" selected>Soldaat — normaal</option><option value="hard">Veteraan — moeilijk</option><option value="extreme">Generaal — extreem</option></select><button class="primary" id="start">START OPERATIE →</button></div></div></section><aside class="sidebar right"><div class="section">MISSIEDOELEN</div><div id="objectives"></div><div class="sep"></div><div class="section">GESELECTEERD</div><div class="target" id="selectedInfo">Geen eenheden geselecteerd</div><div class="section">TAKTISCHE INFORMATIE</div><div class="help">Flanktreffer: <b>+35% schade</b><br>Achteraanval: <b>+70% schade</b><br>Hoogte: <b>−30% inkomende schade</b><br>Echte beschutting achter muur: <b>tot −65% schade</b><br>Artillerie tegen tanks: <b>2,2× schade</b><br>Truckcapaciteit: <b>6 infanteristen</b></div><div class="sep"></div><div id="realisticTacticalInfo" hidden><div class="sep"></div><div class="section">WEER EN VELDSLAG</div><div id="weatherDetail" class="target"></div><div class="section">TACTISCHE GEBOUWEN</div><div id="buildingOverview" class="help"></div><div id="ammoInfo" hidden></div></div><div class="section">OPERATIELOG</div><div class="feed" id="feed"></div><div class="sep"></div><button id="sound" class="full">Geluid: AAN</button></aside></div></div><script>
+(()=>{'use strict';
+const W=1200,H=750,T=Math.PI*2,$=id=>document.getElementById(id),canvas=$('field'),ctx=canvas.getContext('2d'),stats={rifle:{name:'Infanterie',sym:'♟',cost:1,hp:50,speed:66,range:114,dmg:8,rate:.85,r:8},gunner:{name:'Machinegun',sym:'⌁',cost:5,hp:105,speed:51,range:225,dmg:9,rate:.22,r:11},grenadier:{name:'Grenadier',sym:'✹',cost:4,hp:44,speed:61,range:105,dmg:23,rate:2.1,r:9,splash:39},tank:{name:'Tank',sym:'▰',cost:10,hp:290,speed:88,range:245,dmg:48,rate:1.65,r:18,splash:24},artillery:{name:'Artillerie',sym:'◉',cost:12,hp:100,speed:24,range:385,dmg:63,rate:3.4,r:17,splash:46},truck:{name:'Transporttruck',sym:'▣',cost:10,hp:175,speed:112,range:0,dmg:0,rate:100,r:15},scout:{name:'Verkenner',sym:'◈',cost:3,hp:42,speed:145,range:115,dmg:6,rate:1.05,r:7},decoy:{name:'Neptank',sym:'▱',cost:3,hp:18,speed:65,range:0,dmg:0,rate:100,r:18}};
+const defs=[['Iron Ridge','Heuvelruggen en open dal','ridge'],['River Crossing','Twee rivieren en drie bruggen','river'],['Green Valley','Hoge heuvels en lage doorgangen','valley'],['Broken Coast','Kustlijn en smalle landstrook','coast'],['Dust Plains','Uitgestrekte droge vlaktes','desert'],['Twin Lakes','Meren dwingen omtrekkende bewegingen','lakes'],['Mountain Pass','Smalle valleien tussen heuvels','mountain'],['Marshland','Moeras met lage bewegingssnelheid','marsh'],['The Narrows','Bottlenecks rond de centrale weg','narrows'],['Last Fortress','Sterk verdedigbare eindzone','fortress']];
+for(let i=0;i<defs.length;i++)$('mapSelect').add(new Option(String(i+1).padStart(2,'0')+' — '+defs[i][0],String(i)));
+const layouts=[
+{caps:[[285,175],[445,570],[740,180],[875,555]],names:['NOORDRIDGE','ZUIDKAM','HEUVELPOST','OOSTPOST']},
+{caps:[[315,130],[465,370],[752,375],[875,615]],names:['WESTOEVER','BRUG WEST','BRUG OOST','OOSTOEVER']},
+{caps:[[345,255],[445,545],[755,190],[840,440]],names:['BOOMGAARD','ZUIDVALLEI','HOOGTE','OOSTPAD']},
+{caps:[[285,110],[450,570],[730,125],[880,570]],names:['KUSTFORT','ZUIDBAAI','HAVEN','KLIFPOST']},
+{caps:[[305,355],[480,160],[735,565],[895,290]],names:['OASE','NOORDDUIN','ZUIDRUÏNE','OOSTDUIN']},
+{caps:[[295,400],[455,390],[750,380],[875,380]],names:['WESTKADE','MERENPAD','OOSTKADE','VLAKTE']},
+{caps:[[320,260],[475,380],[735,365],[865,515]],names:['WESTPAS','SMALLE PAS','OOSTPAS','RAVIJN']},
+{caps:[[280,155],[450,520],[760,175],[880,530]],names:['DROOG EILAND','ZUIDDIJK','RIETPOST','MOERASRAND']},
+{caps:[[285,345],[490,110],[740,640],[895,355]],names:['WESTPOORT','NOORDPASSAGE','ZUIDPASSAGE','OOSTPOORT']},
+{caps:[[285,220],[445,545],[755,250],[880,475]],names:['BUITENRING','ZUIDFORT','BINNENRING','CITADEL']}
+];
+// Historical commanders; the gameplay bonuses are fictional balance values, not historical ratings.
+const GENERALS=[
+ {id:'rommel',name:'Erwin Rommel',country:'Duitsland',kills:3,attack:0.08,flavor:'Mobiele oorlogvoering · +8% aanval'},
+ {id:'montgomery',name:'Bernard Montgomery',country:'Verenigd Koninkrijk',kills:6,attack:0.10,flavor:'Geplande offensieven · +10% aanval'},
+ {id:'zhukov',name:'Georgy Zhukov',country:'Sovjet-Unie',kills:10,attack:0.12,flavor:'Grootschalige aanvallen · +12% aanval'},
+ {id:'guderian',name:'Heinz Guderian',country:'Duitsland',kills:15,attack:0.14,flavor:'Pantseroffensieven · +14% aanval'},
+ {id:'patton',name:'George S. Patton',country:'Verenigde Staten',kills:21,attack:0.15,flavor:'Snelle doorbraken · +15% aanval'},
+ {id:'manstein',name:'Erich von Manstein',country:'Duitsland',kills:28,attack:0.17,flavor:'Operationele manoeuvres · +17% aanval'},
+ {id:'rokossovsky',name:'Konstantin Rokossovski',country:'Sovjet-Unie',kills:36,attack:0.19,flavor:'Gecoördineerde offensieven · +19% aanval'},
+ {id:'eisenhower',name:'Dwight D. Eisenhower',country:'Verenigde Staten',kills:46,attack:0.20,flavor:'Geallieerde coördinatie · +20% aanval'}
+];
+const COMMANDER_MAX_UNITS=20, CAREER_KEY='frontline-territory-wars-career-kills-v12';
+function loadCareer(){try{const v=Number(localStorage.getItem(CAREER_KEY));return Number.isFinite(v)?Math.max(0,Math.floor(v)):0}catch(e){return 0}}
+function saveCareer(){try{localStorage.setItem(CAREER_KEY,String(G.careerKills))}catch(e){/* browser storage may be unavailable */}}
+function getGeneral(generalId){return GENERALS.find(g=>g.id===generalId)||null}
+function bonusFor(source){if(source?.team!=='blue'||!source.generalId)return 1;const g=getGeneral(source.generalId);return g&&G&&G.careerKills>=g.kills?1+g.attack:1}
+function recordPlayerKill(){const before=G.careerKills;G.careerKills++;saveCareer();for(const general of GENERALS)if(before<general.kills&&G.careerKills>=general.kills){log('★ Generaal vrijgespeeld: '+general.name+' (+'+Math.round(general.attack*100)+'% aanval)!');notify('Nieuwe generaal vrijgespeeld: '+general.name+'!')}}
+function assignGeneral(generalId){
+ if(!G?.playing||G.over)return notify('Start eerst een operatie.');
+ const general=getGeneral(generalId),group=selected().filter(u=>u.team==='blue');
+ if(!general||G.careerKills<general.kills)return notify('Deze generaal is nog niet vrijgespeeld.');
+ if(!group.length)return notify('Selecteer eerst één of meer eigen eenheden op de kaart.');
+ if(group.length>COMMANDER_MAX_UNITS)return notify('Een generaal kan maximaal '+COMMANDER_MAX_UNITS+' eenheden leiden. Selecteer een kleinere groep.');
+ // One general = one defined unit group. Reassignment releases the earlier group.
+ for(const u of G.units)if(u.team==='blue'&&u.generalId===generalId)u.generalId=null;
+ for(const u of group)u.generalId=generalId;
+ log('★ '+general.name+' leidt '+group.length+' eenheden (+'+Math.round(general.attack*100)+'% aanval).');
+ notify(general.name+' toegewezen aan '+group.length+' eenheden. Aanval +'+Math.round(general.attack*100)+'%.');
+ refresh();
+}
+function dismissGeneral(){if(!G?.playing)return;const group=selected();if(!group.length)return notify('Selecteer eerst een groep.');let count=0;for(const u of group)if(u.generalId){u.generalId=null;count++}notify(count+' eenheden hebben geen generaal meer.');refresh()}
+function selectGeneralGroup(id){if(!G?.playing)return;const unitIds=G.units.filter(u=>u.team==='blue'&&u.hp>0&&u.generalId===id&&!u.loadedInto).map(u=>u.id);if(!unitIds.length)return notify('Deze generaal heeft nog geen actieve groep.');G.selected=new Set(unitIds);notify(unitIds.length+' soldaten van '+getGeneral(id).name+' geselecteerd.');refresh()}
+function renderGenerals(){
+ if(!G)return;
+ const kills=G.careerKills,unlocked=GENERALS.filter(g=>kills>=g.kills),next=GENERALS.find(g=>kills<g.kills);
+ $('careerKills').textContent=kills;$('generalCount').textContent=unlocked.length+'/'+GENERALS.length+' vrij';
+ $('generalKillInfo').textContent=kills+' totale kills · '+G.score+' deze slag';
+ $('generalNext').textContent=next?'Volgende: '+next.name+' bij '+next.kills+' kills':'Alle generaals vrijgespeeld';
+ const previous=unlocked.length?unlocked[unlocked.length-1].kills:0;
+ $('generalProgress').style.width=(next?Math.min(100,Math.max(0,(kills-previous)/(next.kills-previous)*100)):100)+'%';
+ const members={};for(const u of G.units)if(u.team==='blue'&&u.hp>0&&u.generalId)members[u.generalId]=(members[u.generalId]||0)+1;
+ $('generalCards').innerHTML=GENERALS.map(g=>{
+  const free=kills>=g.kills,n=members[g.id]||0;
+  return `<div class="general-card ${free?'':'locked'}"><div class="general-title"><span class="general-star">★</span><b>${g.name}</b></div><div class="general-rank">${g.country}</div><div class="general-desc">${g.flavor}${realistic()?`<br><b style="color:#9ee8d9">${generalSpecialText(g)}</b>`:""}</div><div class="general-meta"><span>${free?'VRIJGESPEELD':'🔒 Nog '+(g.kills-kills)+' kills'}</span><span>${n} / ${COMMANDER_MAX_UNITS} troepen</span></div><div class="general-buttons"><button data-assign-general="${g.id}" ${!free?'disabled':''}>Toewijzen</button><button data-select-general="${g.id}" ${!n?'disabled':''}>Selecteer groep</button></div></div>`;
+ }).join('');
+}
+
+// V13 rules are opt-in: Classic uses the original V12 balance, controls and army composition.
+const AMMO_CAP={rifle:40,gunner:90,grenadier:12,tank:14,artillery:10,scout:30,truck:0,decoy:0};
+function ammoEnabled(){return realistic()&&!!G.noMunition}
+function fogEnabled(){return realistic()&&!!G.noVision}
+function ammunitionStatus(u){return u.ammo===undefined?'∞':u.ammo+'/'+(u.maxAmmo||0)}
+// V17: logistiek vereist werkelijk contact gedurende drie aaneengesloten seconden.
+function resupply(dt){if(!realistic())return;
+ for(const u of G.units){
+  if(u.hp<=0||u.loadedInto||u.type==='truck'||u.type==='decoy')continue;
+  const needsAmmo=ammoEnabled()&&u.maxAmmo>0&&u.ammo<u.maxAmmo;
+  const needsHealth=u.hp<u.max;
+  if(!needsAmmo&&!needsHealth){u.supplyTime=0;continue;}
+  const touching=G.units.some(v=>v.hp>0&&v.team===u.team&&v.type==='truck'&&!v.loadedInto&&dist(v,u)<=stats[v.type].r+stats[u.type].r+7);
+  if(!touching){u.supplyTime=0;continue;}
+  u.supplyTime=(u.supplyTime||0)+dt;
+  if(u.supplyTime>=3){
+   if(ammoEnabled()&&u.maxAmmo)u.ammo=u.maxAmmo;
+   u.hp=u.max;u.supplyTime=0;
+   G.effects.push({x:u.x,y:u.y,r:20,life:.5,age:0});
+   if(u.team==='blue')notify(stats[u.type].name+' volledig bevoorraad en genezen.');
+  }
+ }
+}
+// Een mijnenveld is een smalle, geroteerde strook van precies de lengte van een muur.
+function placeMinefield(team,x,y,a,pay=true){
+ const cost=20,key=team==='blue'?'cash':'redCash',base=G.bases[team];
+ if(pay&&G[key]<cost)return notify('Mijnenveld kost 20 credits.'),false;
+ if(pay&&dist({x,y},base)>310&&!G.caps.some(c=>c.owner===team&&dist({x,y},c)<150))return notify('Leg mijnen alleen in eigen gebied.'),false;
+ for(let j=-5;j<=5;j++){
+  const xx=x+Math.cos(a)*j*10,yy=y+Math.sin(a)*j*10;
+  if(xx<15||xx>W-15||yy<15||yy>H-15||isWater(xx,yy)||G.objects.some(o=>o.hp>0&&o.type==='minefield'&&dist({x:xx,y:yy},o)<18))return notify('Mijnenveld kan hier niet worden geplaatst.'),false;
+ }
+ if(pay)G[key]-=cost;
+ G.objects.push({id:id++,team,type:'minefield',x,y,a,len:100,w:17,hp:1,max:1,fire:0});
+ notify('Mijnenveld geplaatst (100 breed, 20 credits).');return true;
+}
+function updateMinefields(){
+ for(const o of G.objects){if(o.hp<=0||o.type!=='minefield')continue;
+  const victim=G.units.find(u=>u.hp>0&&!u.loadedInto&&u.team!==o.team&&Math.abs(segmentDist(u,o).along)<=o.len/2+stats[u.type].r&&segmentDist(u,o).perp<=o.w/2+stats[u.type].r);
+  if(!victim)continue;
+  o.hp=0;const blast={x:victim.x,y:victim.y};G.effects.push({x:blast.x,y:blast.y,r:64,life:.7,age:0});ping('boom');
+  for(const u of G.units)if(u.hp>0&&!u.loadedInto&&u.team!==o.team&&dist(u,blast)<78){
+   damage(u,140*(1-dist(u,blast)/140),{team:o.team,type:'minefield',x:blast.x,y:blast.y},Math.atan2(blast.y-u.y,blast.x-u.x));
+  }
+  if(o.team==='blue'){log('Mijnenveld ontploft: vijand loopt in de val.');notify('Vijandelijke eenheid heeft jouw mijnenveld geraakt!')}
+ }
+}
+const BUILDINGS={
+ barracks:{name:'Kazerne',cost:18,hp:275,size:44,icon:'⌂',note:'−1 voor machinegun / grenadier · spawnzone +35'},
+ tankfactory:{name:'Tankfabriek',cost:25,hp:320,size:53,icon:'▰',note:'Tanks 8 i.p.v. 10 · artillerie 11'},
+ depot:{name:'Reparatiedepot',cost:20,hp:270,size:46,icon:'✚',note:'Repareert bevriende eenheden binnen 135'},
+ radar:{name:'Radarpost',cost:18,hp:220,size:42,icon:'◈',note:'Detectie tot 290; helpt bij mist / nacht'},
+ bunker:{name:'Bunker',cost:15,hp:400,size:54,icon:'▣',note:'Vuursteun en +20% bescherming binnen 95'}
+};
+const WEATHERS=['clear','rain','fog','snow'],PHASES=['day','dusk','night','dawn'];
+const fogLayer=document.createElement('canvas');fogLayer.width=600;fogLayer.height=375;const fogCtx=fogLayer.getContext('2d');
+const WEATHER_NAMES={clear:'Helder',rain:'Regen',fog:'Mist',snow:'Sneeuw'},PHASE_NAMES={day:'Dag',dusk:'Schemer',night:'Nacht',dawn:'Ochtend'};
+function realistic(){return !!G&&G.mode==='realistic'}
+function ownBuildings(team,type){return G.objects.filter(o=>o.hp>0&&o.team===team&&o.type===type)}
+function hasBuilding(team,type){return realistic()&&ownBuildings(team,type).length>0}
+function recruitCost(team,type){let n=stats[type].cost;if(!realistic())return n;
+ if(hasBuilding(team,'barracks')&&['gunner','grenadier'].includes(type))n-=1;
+ if(hasBuilding(team,'tankfactory')&&type==='tank')n=8;
+ if(hasBuilding(team,'tankfactory')&&type==='artillery')n=11;
+ return Math.max(1,n);
+}
+function spawnRadius(team){return 155+(hasBuilding(team,'barracks')?35:0)}
+function getWeather(){return realistic()?G.weather:'clear'}
+function visionRadius(team,observer){if(!fogEnabled())return Infinity;
+ let radius=observer.type==='scout'?355:observer.type==='artillery'?210:observer.type==='tank'?245:observer.type==='radar'?290:observer.type==='bunker'?155:observer.type==='base'?135:215;
+ if(G.phase==='night')radius*=.67;else if(G.phase==='dusk'||G.phase==='dawn')radius*=.84;
+ if(G.weather==='fog')radius*=.56;else if(G.weather==='snow')radius*=.89;
+ if(observer.type==='radar')radius=Math.max(radius,290); // radar works even in fog/night
+ return radius;
+}
+function spotted(team,target){if(!fogEnabled()||!target)return true;
+ if(G.units.some(u=>u.hp>0&&u.team===team&&!u.loadedInto&&dist(u,target)<=visionRadius(team,u)))return true;
+ if(dist(G.bases[team],target)<visionRadius(team,{type:'base'}))return true;
+ if(G.caps.some(c=>c.owner===team&&dist(c,target)<100))return true;
+ return G.objects.some(o=>o.hp>0&&o.team===team&&o.type==='radar'&&dist(o,target)<visionRadius(team,o));
+}
+function sightedEnemy(team,target){return !fogEnabled()||spotted(team,target)}
+// A scout is the only unit that can positively identify inflatable tanks.
+function identifiedDecoy(team,target){if(!realistic()||target?.type!=='decoy'||target.team===team)return false;
+ const range=(G.weather==='fog'?.76:1)*(G.phase==='night'?.82:1)*185;
+ return G.units.some(u=>u.hp>0&&u.team===team&&u.type==='scout'&&!u.loadedInto&&dist(u,target)<=range);
+}
+function legalTarget(team,target){return sightedEnemy(team,target)&&!identifiedDecoy(team,target)}
+function typeAvailable(type){return !['scout','decoy'].includes(type)||realistic()}
+// Find ten dry, unobstructed and reasonably spaced landing positions.
+function airliftSlots(p){const result=[];
+ for(let radius=28;radius<=164&&result.length<10;radius+=22){
+  const steps=Math.max(12,Math.ceil(T*radius/26));
+  for(let j=0;j<steps&&result.length<10;j++){
+   const a=j*T/steps+(radius%17)*.23,x=p.x+Math.cos(a)*radius,y=p.y+Math.sin(a)*radius;
+   const q={x,y};if(!free(x,y,stats.gunner.r+2)||dist(p,q)>168||result.some(v=>dist(v,q)<26))continue;
+   result.push(q);
+  }
+ }
+ return result;
+}
+function startAirlift(p){if(!realistic())return notify('Helikopterdropping hoort bij Realistic Battlefield.');
+ if(G.cash<45)return notify('Helikopterdropping kost 45 credits.');
+ const pending=G.airlifts.filter(h=>!h.delivered).length*10;
+ if(G.units.filter(u=>u.team==='blue'&&u.hp>0).length+pending+10>110)return notify('Te veel troepen. Er moet plaats zijn voor tien machinegunners.');
+ if(!free(p.x,p.y,20))return notify('Kies droge, vrije grond voor de landing.');
+ const slots=airliftSlots(p);if(slots.length<10)return notify('Onvoldoende vrije grond rond dit landingspunt voor tien machinegunners.');
+ G.cash-=45;
+ const start={x:-95,y:clamp(p.y-165,50,H-50)};
+ G.airlifts.push({x:start.x,y:start.y,start,goal:{x:p.x,y:p.y},slots,progress:0,phase:'incoming',timer:0,delivered:false,angle:0});
+ log('Helikopter onderweg naar '+Math.round(p.x)+', '+Math.round(p.y)+'.');notify('Helikopter onderweg: 10 machinegunners · 45 credits.');refresh();
+}
+function updateAirlifts(dt){if(!realistic())return;
+ for(const h of G.airlifts){
+  if(h.phase==='incoming'){
+   h.progress=Math.min(1,h.progress+dt/4.3);
+   const t=1-Math.pow(1-h.progress,2);
+   h.x=h.start.x+(h.goal.x-h.start.x)*t;h.y=h.start.y+(h.goal.y-h.start.y)*t;
+   if(h.progress>=1){h.phase='landing';h.timer=.75;}
+  }else if(h.phase==='landing'){
+   h.timer-=dt;if(h.timer>0)continue;
+   let made=0;
+   // Re-evaluate free positions in case a structure was built while the aircraft flew in.
+   const slots=airliftSlots(h.goal);for(const q of slots){
+    if(made===10)break;
+    let u=spawn('blue','gunner',q.x,q.y,false,true);
+    if(u){u.engagementMode='guard';u.guardFacing=null;made++;
+     G.effects.push({x:q.x,y:q.y,r:13,life:.45,age:0});}
+   }
+   if(made<10){G.cash+=(10-made)*4.5;log('Landingsruimte geblokkeerd: '+made+' afgezet; credits terug voor overige troepen.');}
+   else log('Helikopter heeft tien machinegunners afgezet.');
+   h.delivered=true;h.phase='depart';h.timer=0;
+  }else if(h.phase==='depart'){
+   h.timer+=dt;h.x+=185*dt;h.y-=80*dt;
+  }
+ }
+ G.airlifts=G.airlifts.filter(h=>h.phase!=='depart'||h.timer<5.8);
+}
+function drawAirlifts(){if(!realistic())return;
+ for(const h of G.airlifts){
+  if(!h.delivered){ctx.strokeStyle='#b4e8c577';ctx.setLineDash([7,7]);ctx.lineWidth=2;ctx.beginPath();ctx.arc(h.goal.x,h.goal.y,42,0,T);ctx.stroke();ctx.setLineDash([]);
+   ctx.fillStyle='#d5ffde';ctx.font='bold 10px system-ui';ctx.textAlign='center';ctx.fillText('LANDINGSZONE',h.goal.x,h.goal.y+57);}
+  ctx.save();ctx.translate(h.x,h.y);ctx.rotate(-.21);
+  circle(6,7,39,'#061b20aa');ctx.fillStyle='#52796c';ctx.beginPath();ctx.ellipse(0,0,40,18,0,0,T);ctx.fill();
+  rect(-28,-7,48,14,'#739d81');rect(-71,-4,44,8,'#6d8e81');rect(-74,-11,6,23,'#9fc3b6');
+  circle(18,0,10,'#b9d9c7');ctx.strokeStyle='#d6f8eb';ctx.lineWidth=3;let a=G.elapsed*17;
+  line(-6+Math.cos(a)*53,Math.sin(a)*53,-6-Math.cos(a)*53,-Math.sin(a)*53,'#d8f3e7',3);
+  line(-6+Math.sin(a)*53,-Math.cos(a)*53,-6-Math.sin(a)*53,Math.cos(a)*53,'#9fcfc2',2);
+  ctx.restore();
+ }
+}
+
+function mobileSpeed(u){if(!realistic())return 1;
+ let mod=1;
+ if(G.weather==='rain')mod*=['tank','artillery','truck'].includes(u.type)?.76:.95;
+ if(G.weather==='snow')mod*=['tank','artillery','truck'].includes(u.type)?.69:.84;
+ if(u.team==='blue'&&u.generalId==='rommel')mod*=1.20;
+ if(u.team==='blue'&&u.generalId==='patton'&&['tank','truck'].includes(u.type))mod*=1.14;
+ return mod;
+}
+function generalGroup(gid){return G.units.filter(u=>u.hp>0&&!u.loadedInto&&u.team==='blue'&&u.generalId===gid)}
+function realOffense(u){if(!realistic()||u.team!=='blue'||!u.generalId)return 1;
+ switch(u.generalId){
+ case 'guderian':return u.type==='tank'?1.16:1;
+ case 'zhukov':return generalGroup('zhukov').length>=8?1.10:1;
+ case 'patton':return u.type==='rifle'?1.08:1;
+ case 'rokossovsky':return u.type==='artillery'?1.16:1;
+ case 'eisenhower':return new Set(generalGroup('eisenhower').map(v=>v.type)).size>=3?1.07:1;
+ default:return 1;
+ }
+}
+function realDefense(u){if(!realistic())return 1;
+ let factor=1;
+ if(u.team==='blue'&&u.generalId==='montgomery')factor*=.82;
+ if(u.team==='blue'&&u.generalId==='eisenhower'&&new Set(generalGroup('eisenhower').map(v=>v.type)).size>=3)factor*=.93;
+ if(G.objects.some(o=>o.hp>0&&o.team===u.team&&o.type==='bunker'&&dist(o,u)<95))factor*=.80;
+ return factor;
+}
+function realFireFactor(){if(!realistic())return 1;
+ let factor=1;if(G.weather==='snow')factor*=.88;if(G.phase==='night')factor*=.94;return factor;
+}
+function realRangeFactor(){if(!realistic())return 1;return G.weather==='snow'?.90:1}
+function generalSpecialText(g){if(!realistic())return '';
+ const x={rommel:'Uniek: +20% snelheid (eigen groep)',montgomery:'Uniek: −18% ontvangen schade',zhukov:'Uniek: +10% aanval bij 8+ groepsleden',guderian:'Uniek: tanks +16% aanval',patton:'Uniek: voertuigen +14% snelheid; infanterie +8% aanval',manstein:'Uniek: +20% flank- en rugaanvallen',rokossovsky:'Uniek: artillerie +16% aanval',eisenhower:'Uniek: gemengde groep 3+ types +7% aanval, −7% schade'};
+ return x[g.id]||'';
+}
+function placeBuilding(team,type,x,y,pay=true){if(!realistic()||!BUILDINGS[type])return false;
+ const b=BUILDINGS[type],wallet=team==='blue'?'cash':'redCash';
+ if(pay&&G[wallet]<b.cost)return notify('Niet genoeg credits voor '+b.name+' ('+b.cost+').'),false;
+ const max=type==='radar'?1:2;
+ if(ownBuildings(team,type).length>=max)return notify('Limiet bereikt: '+max+'× '+b.name+'.'),false;
+ if(dist({x,y},G.bases[team])>310&&!G.caps.some(c=>c.owner===team&&dist({x,y},c)<150))return notify('Bouw alleen binnen je basisgebied of bij eigen posten.'),false;
+ for(let dx of [-b.size/2,0,b.size/2])for(let dy of [-b.size/2,0,b.size/2])if(!free(x+dx,y+dy,7))return notify('Hier is geen vrije plaats voor dit gebouw.'),false;
+ if(G.units.some(u=>u.hp>0&&!u.loadedInto&&Math.abs(u.x-x)<b.size/2+14&&Math.abs(u.y-y)<b.size/2+14))return notify('Troepen staan in de bouwzone.'),false;
+ if(pay)G[wallet]-=b.cost;
+ G.objects.push({id:id++,team,type,x,y,a:0,len:b.size,w:b.size,hp:b.hp,max:b.hp,fire:.15});
+ log((team==='blue'?'Gebouwd: ':'Vijand bouwt: ')+b.name+'.');
+ return true;
+}
+function updateEnvironment(dt){if(!realistic()||!G.dynamicEnvironment)return;
+ G.weatherTimer+=dt;G.phaseTimer+=dt;
+ if(G.weatherTimer>=90){G.weatherTimer-=90;let possibilities=WEATHERS.filter(x=>x!==G.weather);G.weather=possibilities[Math.floor(rnd(0,possibilities.length))];log('Weerbericht: '+WEATHER_NAMES[G.weather]+'.');}
+ if(G.phaseTimer>=80){G.phaseTimer-=80;G.phase=PHASES[(PHASES.indexOf(G.phase)+1)%PHASES.length];log('Tijdstip: '+PHASE_NAMES[G.phase]+'.');}
+}
+function repairUnits(dt){if(!realistic())return;
+ for(const d of G.objects){if(d.type!=='depot'||d.hp<=0)continue;
+ for(const u of G.units){if(u.team!==d.team||u.hp<=0||u.loadedInto||dist(u,d)>135)continue;
+ const rate=['tank','truck','artillery'].includes(u.type)?10:5;
+ u.hp=Math.min(u.max,u.hp+rate*dt);
+ }}
+}
+function tacticalBuildingFire(dt){if(!realistic())return;
+ for(const o of G.objects){if(o.hp<=0||o.type!=='bunker')continue;
+ o.fire-=dt;if(o.fire>0)continue;
+ const enemies=G.units.filter(u=>u.team!==o.team&&u.hp>0&&!u.loadedInto&&dist(u,o)<185&&spotted(o.team,u)).sort((a,b)=>dist(a,o)-dist(b,o));
+ if(!enemies.length)continue;
+ const t=enemies[0],a=Math.atan2(t.y-o.y,t.x-o.x);o.fire=.80;
+ G.projectiles.push({x:o.x,y:o.y,vx:Math.cos(a)*560,vy:Math.sin(a)*560,team:o.team,source:{team:o.team,type:'bunker',x:o.x,y:o.y},dmg:12*realFireFactor(),r:0,life:.42});
+ }
+}
+function renderEnvironment(){const hidden=!realistic();$('environmentStatus').hidden=hidden;$('realisticBuildings').hidden=hidden;$('realisticSpecials').hidden=hidden;$('airliftQuick').hidden=hidden;$('realisticTacticalInfo').hidden=hidden;
+ if(hidden)return;
+ const label=WEATHER_NAMES[G.weather]+' · '+PHASE_NAMES[G.phase];$('environmentLabel').textContent=label+(fogEnabled()?' · NO VISION':' · NORMAL VISION')+(ammoEnabled()?' · LIMITED AMMO':'');
+ const desc={clear:'Normale beweging en zicht.',rain:'Regen: voertuigen −24% snelheid; infanterie −5%.',fog:'Mist: zichtbereik wordt ongeveer gehalveerd.',snow:'Sneeuw: voertuigen −31% snelheid, infanterie −16%; schade −12%.'};
+ $('weatherDetail').innerHTML='<b>'+label+'</b><div style="margin-top:5px">'+desc[G.weather]+'</div><div>Nacht: zicht −33%; aanvalsschade −6%. Radar behoudt ruim bereik.</div>';
+ $('buildingOverview').innerHTML=Object.entries(BUILDINGS).map(([k,b])=>'<div class="realistic-object-label"><span>'+b.icon+' '+b.name+'</span><b>'+ownBuildings('blue',k).length+'/'+(k==='radar'?1:2)+'</b></div>').join('');
+  $('ammoInfo').hidden=!ammoEnabled();if(ammoEnabled()){$('ammoInfo').innerHTML='<b>MUNITIE · BEPERKT</b><div>Munitie raakt echt op. Rijd met een transporttruck tot tegen de troepen aan: na 3 seconden contact worden munitie en gezondheid volledig aangevuld.</div><div>Eenheden zonder munitie kunnen niet schieten.</div>';}
+
+}
+function paintEnvironment(){if(!realistic())return;
+ const night=G.phase==='night',dim=night?.49:G.phase==='dusk'?.22:G.phase==='dawn'?.14:0;
+ if(dim){ctx.fillStyle='rgba(5,13,32,'+dim+')';ctx.fillRect(0,0,W,H)}
+ if(G.weather==='fog'){ctx.fillStyle='rgba(190,208,211,0.15)';ctx.fillRect(0,0,W,H);for(let i=0;i<16;i++){let y=((i*71+Math.sin(G.elapsed*.12+i)*15)%H);ctx.fillStyle='rgba(215,228,230,0.055)';ctx.fillRect(0,y,W,24)}}
+ if(G.weather==='rain'){ctx.strokeStyle='rgba(164,201,229,.30)';ctx.lineWidth=1;for(let i=0;i<140;i++){let x=(i*83+G.elapsed*90)%W,y=(i*49+G.elapsed*280)%H;line(x,y,x-9,y+22,'rgba(175,204,232,.35)',1)}}
+ if(G.weather==='snow'){for(let i=0;i<95;i++){let x=(i*97+Math.sin(i)*53+G.elapsed*(7+i%5))%W,y=(i*83+G.elapsed*(22+i%8))%H;circle(x,y,1.4+(i%3)*.4,'rgba(234,244,255,.65)')}}
+ // Fog-of-war obscures unexplored space without covering own troops, controls or capture UI.
+ const fog=fogEnabled();
+ if(fog){fogCtx.save();fogCtx.globalCompositeOperation='source-over';fogCtx.clearRect(0,0,600,375);fogCtx.fillStyle='rgba(4,10,21,.78)';fogCtx.fillRect(0,0,600,375);fogCtx.globalCompositeOperation='destination-out';
+ const erase=(x,y,r)=>{const xx=x*.5,yy=y*.5,rr=r*.5;let gr=fogCtx.createRadialGradient(xx,yy,Math.max(1,rr*.3),xx,yy,rr);gr.addColorStop(0,'rgba(0,0,0,1)');gr.addColorStop(1,'rgba(0,0,0,0)');fogCtx.fillStyle=gr;fogCtx.beginPath();fogCtx.arc(xx,yy,rr,0,T);fogCtx.fill()};
+ for(const u of G.units)if(u.hp>0&&u.team==='blue'&&!u.loadedInto)erase(u.x,u.y,visionRadius('blue',u));
+ erase(G.bases.blue.x,G.bases.blue.y,visionRadius('blue',{type:'base'}));
+ for(const o of G.objects)if(o.hp>0&&o.team==='blue'&&o.type==='radar')erase(o.x,o.y,visionRadius('blue',o));
+ fogCtx.restore();ctx.drawImage(fogLayer,0,0,W,H);}
+}
+function drawBuilding(o){const b=BUILDINGS[o.type],col=o.team==='blue'?'#89d9de':'#e18b84';
+ ctx.save();ctx.translate(o.x,o.y);
+ rect(-b.size/2-3,-b.size/2-3,b.size+6,b.size+6,'#101d25');rect(-b.size/2,-b.size/2,b.size,b.size,o.team==='blue'?'#365d60':'#78504f');
+ ctx.strokeStyle=col;ctx.lineWidth=2;ctx.strokeRect(-b.size/2,-b.size/2,b.size,b.size);ctx.fillStyle='#f4e0ac';ctx.textAlign='center';ctx.font='bold 21px system-ui';ctx.fillText(b.icon,0,7);
+ ctx.font='bold 9px system-ui';ctx.fillText(b.name.toUpperCase(),0,-b.size/2-10);ctx.restore();
+ if(o.hp<o.max){rect(o.x-24,o.y+b.size/2+7,48,5,'#1a2630');rect(o.x-24,o.y+b.size/2+7,48*Math.max(0,o.hp/o.max),5,col)}
+ if(o.type==='radar'){ctx.strokeStyle=col+'55';ctx.beginPath();ctx.arc(o.x,o.y,290,0,T);ctx.stroke()}
+ if(o.type==='depot'){ctx.strokeStyle='#8fe3c155';ctx.beginPath();ctx.arc(o.x,o.y,135,0,T);ctx.stroke()}
+}
+const cfg={easy:{income:1.7,spawn:1.45,hp:.72,dmg:.8},normal:{income:1,spawn:1,hp:1,dmg:1},hard:{income:.92,spawn:.78,hp:1.25,dmg:1.2},extreme:{income:.8,spawn:.58,hp:1.5,dmg:1.4}};
+let lastRight={at:0,x:0,y:0},G=null,tool='rifle',rotation=0,mouse={x:0,y:0,down:false,start:null,box:null},prev=0,id=1,audio=null,sound=true,uiClock=0,retreating=false;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),rnd=(a,b)=>a+Math.random()*(b-a),vrot=(dx,dy,a)=>({x:dx*Math.cos(a)+dy*Math.sin(a),y:-dx*Math.sin(a)+dy*Math.cos(a)});
+function ping(type='shot'){if(!sound||!G?.playing)return;try{audio??=new (window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();const o=audio.createOscillator(),gain=audio.createGain(),n=audio.currentTime;o.type=type==='boom'?'sawtooth':'square';o.frequency.setValueAtTime(type==='boom'?90:type==='tank'?160:380,n);o.frequency.exponentialRampToValueAtTime(type==='boom'?34:Math.max(70,type==='tank'?50:135),n+(type==='boom'?.29:.065));gain.gain.setValueAtTime(type==='boom'?.11:.025,n);gain.gain.exponentialRampToValueAtTime(.0001,n+(type==='boom'?.35:.09));o.connect(gain).connect(audio.destination);o.start(n);o.stop(n+(type==='boom'?.36:.1));}catch(e){}}
+function notify(msg){$('toast').textContent=msg}function log(msg){G.feed.unshift(msg);G.feed=G.feed.slice(0,5);$('feed').innerHTML=G.feed.map(x=>'<div>› '+x+'</div>').join('')}
+function terrain(index){let kind=defs[index][2],hills=[],water=[],mud=[];let random=x=>{let v=Math.sin((x+index*37.1)*78.233)*43758.1;return v-Math.floor(v)};
+const add=(x,y,rx,ry,a=0)=>hills.push({x,y,rx,ry,a});
+if(kind==='ridge'){for(let i=0;i<6;i++){add(260+i*145,135+(i%2)*55,84,36,.4);add(290+i*140,585-(i%2)*60,87,35,-.35)}}
+if(kind==='river'){water.push({kind:'river',x:595,w:110,bridges:[170,375,605],bh:64});for(let i=0;i<4;i++){add(240+i*165,80,75,36,.1);add(370+i*130,685,80,35,-.1)}}
+if(kind==='valley'){for(let i=0;i<6;i++){add(200+i*155,115+Math.sin(i)*55,110,94,.2);add(205+i*155,650+Math.sin(i)*25,112,82,-.2)}}
+if(kind==='coast'){water.push({kind:'coast',edge:495,w:155,bridges:[135,380,605],bh:76});for(let i=0;i<5;i++)add(300+i*160,220+(i%2)*315,70,65,.4)}
+if(kind==='desert'){for(let i=0;i<14;i++)add(190+(i%7)*145,125+Math.floor(i/7)*475,72,27,(i%2?.4:-.35))}
+if(kind==='lakes'){water.push({kind:'ellipse',x:475,y:205,rx:185,ry:120},{kind:'ellipse',x:725,y:575,rx:194,ry:115});for(let i=0;i<4;i++)add(270+i*210,380,55,30,.2)}
+if(kind==='mountain'){for(let i=0;i<7;i++){add(180+i*151,145,90,105,.24);add(180+i*151,610,89,109,-.15)}add(610,355,94,55)}
+if(kind==='marsh'){for(let i=0;i<9;i++)mud.push({x:205+(i%5)*190,y:140+Math.floor(i/5)*430,rx:95,ry:88});water.push({kind:'ellipse',x:585,y:338,rx:87,ry:82},{kind:'ellipse',x:805,y:185,rx:70,ry:55});for(let i=0;i<4;i++)add(300+i*230,365,45,30)}
+if(kind==='narrows'){water.push({kind:'river',x:645,w:130,bridges:[110,365,630],bh:64});for(let i=0;i<5;i++){add(275+i*170,175,81,93);add(270+i*172,585,82,97)}}
+if(kind==='fortress'){for(let i=0;i<5;i++){add(300+i*150,140,82,62);add(340+i*135,620,80,67)}add(975,370,127,123)}
+return{kind,hills,water,mud,trees:Array.from({length:kind==='desert'?25:kind==='marsh'?145:85},(_,i)=>({x:55+random(i+310)*1080,y:20+random(i+425)*700,r:3+random(i+510)*3})),stones:Array.from({length:kind==='desert'?135:45},(_,i)=>({x:30+random(i+810)*1150,y:20+random(i+925)*720,r:3+random(i+1010)*9}))};}
+function preview(){const i=Number($('mapSelect').value||0),m=terrain(i),c=$('mapPreview'),g=c.getContext('2d'),sx=c.width/1200,sy=c.height/750;g.setTransform(sx,0,0,sy,0,0);let colors={ridge:'#426447',river:'#3e614d',valley:'#345f3b',coast:'#617054',desert:'#8d7950',lakes:'#466d51',mountain:'#536454',marsh:'#495d42',narrows:'#626855',fortress:'#46544b'};g.fillStyle=colors[m.kind];g.fillRect(0,0,1200,750);g.strokeStyle='#d8c59644';g.lineWidth=28;g.beginPath();g.moveTo(50,370);g.lineTo(1150,370);g.stroke();for(const h of m.hills){g.save();g.translate(h.x,h.y);g.rotate(h.a);g.fillStyle=m.kind==='desert'?'#ae975a':'#879d6c';g.beginPath();g.ellipse(0,0,h.rx,h.ry,0,0,6.283);g.fill();g.strokeStyle='#d6e0a855';g.lineWidth=3;g.stroke();g.restore()}for(const z of m.mud){g.fillStyle='#5c5941';g.beginPath();g.ellipse(z.x,z.y,z.rx,z.ry,0,0,6.283);g.fill()}for(const w of m.water){g.fillStyle='#367d99';if(w.kind==='ellipse'){g.beginPath();g.ellipse(w.x,w.y,w.rx,w.ry,0,0,6.283);g.fill()}else{const x=w.kind==='river'?w.x-w.w/2:w.edge;g.fillRect(x,0,w.w,750);g.fillStyle='#c1a77a';for(const y of w.bridges)g.fillRect(x-7,y-w.bh/2,w.w+14,w.bh)}}for(const t of m.trees){g.fillStyle=m.kind==='desert'?'#736b4b':'#254d33';g.beginPath();g.arc(t.x,t.y,t.r*1.6,0,6.283);g.fill()}for(const [j,q] of layouts[i].caps.entries()){g.beginPath();g.arc(q[0],q[1],28,0,6.283);g.fillStyle='#e8cd79';g.fill();g.strokeStyle='#182e3a';g.lineWidth=5;g.stroke();g.fillStyle='#1a3239';g.textAlign='center';g.font='bold 24px system-ui';g.fillText(String(j+1),q[0],q[1]+8)}for(const [x,col,label] of [[90,'#7adce9','JIJ'],[1110,'#ef8e83','AI']]){g.fillStyle=col;g.fillRect(x-32,340,64,64);g.fillStyle='#102833';g.textAlign='center';g.font='bold 19px system-ui';g.fillText(label,x,381)}$('previewTitle').textContent=(i+1)+'. '+defs[i][0];$('previewDesc').textContent=defs[i][1]+' · 4 unieke posten';}
+$('mapSelect').addEventListener('change',preview);
+function isWater(x,y){return G.map.water.some(w=>{if(w.kind==='ellipse')return((x-w.x)/w.rx)**2+((y-w.y)/w.ry)**2<1;if(w.kind==='river')return Math.abs(x-w.x)<w.w/2&&!w.bridges.some(b=>Math.abs(y-b)<w.bh/2);if(w.kind==='coast')return x>w.edge&&x<w.edge+w.w&&!w.bridges.some(b=>Math.abs(y-b)<w.bh/2);return false})}
+function hill(x,y){return G.map.hills.some(h=>{let a=vrot(x-h.x,y-h.y,h.a);return a.x*a.x/(h.rx*h.rx)+a.y*a.y/(h.ry*h.ry)<.8})}
+function muddy(x,y){return G.map.mud.some(m=>((x-m.x)/m.rx)**2+((y-m.y)/m.ry)**2<1)}
+function segmentDist(p,o){let a=vrot(p.x-o.x,p.y-o.y,o.a);return{along:a.x,perp:Math.abs(a.y)}}
+function hitsStructure(x,y,r=5){return G.objects.some(o=>o.type!=='minefield'&&o.hp>0&&Math.abs(segmentDist({x,y},o).along)<o.len/2+r&&segmentDist({x,y},o).perp<o.w/2+r)}
+function free(x,y,r=8){return x>r+6&&x<W-r-6&&y>r+6&&y<H-r-6&&!isWater(x,y)&&!hitsStructure(x,y,r)}
+function newGame(){const ix=Number($('mapSelect').value),difficulty=$('difficulty').value;G={playing:false,paused:false,over:false,map:terrain(ix),mapIx:ix,difficulty,mode:$('gameMode').value,weather:$('weatherSelect').value==='random'?WEATHERS[Math.floor(rnd(0,WEATHERS.length))]:$('weatherSelect').value,phase:$('timeSelect').value,dynamicEnvironment:$('dynamicEnvironment').checked,noVision:$('noVision').checked&&$('gameMode').value==='realistic',noMunition:$('noMunition').checked&&$('gameMode').value==='realistic',weatherTimer:0,phaseTimer:0,elapsed:0,cash:24,redCash:18,units:[],airlifts:[],projectiles:[],effects:[],objects:[],caps:layouts[ix].caps.map((p,i)=>({x:p[0],y:p[1],name:layouts[ix].names[i],owner:'neutral',progress:0,by:null})),bases:{blue:{x:90,y:375,hp:850,max:850,progress:0},red:{x:1110,y:375,hp:1100,max:1100,progress:0}},income:0,ai:0,aiBuild:0,score:0,enemyScore:0,careerKills:loadCareer(),selected:new Set(),feed:[],ticks:0};id=1;for(const p of G.caps){if(isWater(p.x,p.y)){let origin={x:p.x,y:p.y},found=false;for(let r=20;r<290&&!found;r+=20)for(let a=0;a<24;a++){let x=origin.x+Math.cos(a*Math.PI/12)*r,y=origin.y+Math.sin(a*Math.PI/12)*r;if(x>195&&x<1005&&y>60&&y<690&&!isWater(x,y)){p.x=x;p.y=y;found=true;break}}}}
+for(let i=0;i<3;i++)spawn('red','rifle',1050+rnd(-25,20),285+i*90,false);if(G.mapIx===9){for(let i=0;i<4;i++)place('red','wall',980,195+i*112,Math.PI/2,false)}
+$('mapName').textContent=(realistic()?'REALISTIC'+(fogEnabled()?' / NO VISION':'')+(ammoEnabled()?' / NO MUNITION':''):'CLASSIC')+' · OPERATIE '+(ix+1)+' — '+defs[ix][0].toUpperCase();$('mapNote').textContent=defs[ix][1]+'. Verover alle 4 posten, schakel de vijandelijke basis uit en houd haar 30 sec vast.';log('Operatie gestart: '+defs[ix][0]);refresh();}
+function spawn(team,type,x,y,pay=true,airdrop=false){if(!typeAvailable(type))return null;let st=stats[type],key=team==='blue'?'cash':'redCash',base=G.bases[team];if(pay&&G[key]<recruitCost(team,type))return notify('Onvoldoende credits.'),null;if(!airdrop&&dist({x,y},base)>spawnRadius(team))return notify('Plaats troepen binnen de spawnzone van je basis.'),null;if(!free(x,y,st.r))return null;if(G.units.filter(u=>u.team===team).length>=110)return null;if(pay)G[key]-=recruitCost(team,type);let max=st.hp*(team==='red'?cfg[G.difficulty].hp:1);let u={id:id++,team,type,x,y,hp:max,max,angle:team==='blue'?0:Math.PI,aim:team==='blue'?0:Math.PI,fire:rnd(0,st.rate),order:null,attackOrder:null,coverId:null,loadedInto:null,cargo:[],generalId:null,ammo:ammoEnabled()?(AMMO_CAP[type]||0):undefined,maxAmmo:ammoEnabled()?(AMMO_CAP[type]||0):undefined,rearm:0,path:[],pathTimer:0,phase:rnd(0,5)};G.units.push(u);return u}
+function batchSpawn(x,y){
+ if(!G?.playing||G.over||!stats[tool]||!typeAvailable(tool))return false;
+ const st=stats[tool],maxCount=Math.min(10,Math.floor(G.cash/recruitCost('blue',tool)),110-G.units.filter(u=>u.team==='blue').length);
+ if(maxCount<1){notify('Onvoldoende credits of maximum aantal eenheden bereikt.');return true;}
+ const base=G.bases.blue;
+ if(dist({x,y},base)>spawnRadius('blue')){notify('Plaats troepen binnen de spawnzone van je basis.');return true;}
+ let made=0;
+ // Plaats de groep in compacte ringen rond de gewenste positie, met collision-checks.
+ // De berekening wordt per spawn opnieuw uitgevoerd zodat nieuwe eenheden geen plek delen.
+ for(let i=0;i<maxCount;i++){
+   let placed=false;
+   for(let radius=0;radius<=104&&!placed;radius+=Math.max(17,st.r*2+5)){
+     const steps=radius===0?1:Math.max(10,Math.ceil(2*Math.PI*radius/(st.r*2+6)));
+     for(let j=0;j<steps;j++){
+       const a=2*Math.PI*(j/steps)+i*2.399963229728653;
+       const px=x+radius*Math.cos(a),py=y+radius*Math.sin(a);
+       if(dist({x:px,y:py},base)>spawnRadius('blue')||!free(px,py,st.r))continue;
+       if(spawn('blue',tool,px,py)){made++;placed=true;break;}
+     }
+   }
+   if(!placed)break;
+ }
+ notify(made+'× '+st.name+' geplaatst'+(made<maxCount?' (onvoldoende vrije ruimte voor meer).':'.'));
+ refresh();return true;
+}
+function place(team,type,x,y,a,pay=true){if(type==='minefield')return placeMinefield(team,x,y,a,pay);if(BUILDINGS[type])return placeBuilding(team,type,x,y,pay);const costs={wall:4,sandbag:2,turret:9},key=team==='blue'?'cash':'redCash',b=G.bases[team];if(pay&&G[key]<costs[type])return notify('Te weinig credits.'),false;if(pay&&dist({x,y},b)>310&&!G.caps.some(c=>c.owner===team&&dist({x,y},c)<150))return notify('Je kunt alleen bouwen in je eigen gebied.'),false;let len=type==='wall'?100:type==='sandbag'?115:30,w=type==='wall'?15:type==='sandbag'?18:26;for(let j=-3;j<=3;j++){let xx=x+Math.cos(a)*(len/2)*j/3,yy=y+Math.sin(a)*(len/2)*j/3;if(!free(xx,yy,w/2))return notify('Hier is geen ruimte voor deze constructie.'),false;}if(pay)G[key]-=costs[type];G.objects.push({id:id++,team,type,x,y,a,len,w,hp:type==='wall'?240:type==='sandbag'?130:155,max:type==='wall'?240:type==='sandbag'?130:155,fire:rnd(0,.5)});return true}
+function wallNearPoint(p,team){return [...G.objects].reverse().find(o=>o.team===team&&o.hp>0&&['wall','sandbag'].includes(o.type)&&Math.abs(segmentDist(p,o).along)<=o.len/2+13&&segmentDist(p,o).perp<=o.w/2+19)}
+function hideBehind(units,o){let opponents=G.units.filter(v=>v.team!==o.team&&v.hp>0&&!v.loadedInto);let enemy=opponents.length?opponents.reduce((a,b)=>dist(a,o)<dist(b,o)?a:b):G.bases[o.team==='blue'?'red':'blue'];let side=vrot(enemy.x-o.x,enemy.y-o.y,o.a).y>=0?-1:1;let nx=-Math.sin(o.a),ny=Math.cos(o.a);const margin=o.w/2+23;units.forEach((u,i)=>{const count=units.length,slot=clamp((i-(count-1)/2)*27,-o.len/2+13,o.len/2-13),off=margin+Math.floor(i/Math.max(1,Math.floor(o.len/27)))*30;let p={x:clamp(o.x+Math.cos(o.a)*slot+nx*side*off,18,W-18),y:clamp(o.y+Math.sin(o.a)*slot+ny*side*off,18,H-18)};u.order=p;u.attackOrder=null;u.coverId=o.id;u.engagementMode='guard';u.guardFacing=null;u.path=[];u.pathTimer=0});notify(units.length+' eenheden zoeken dekking achter '+(o.type==='wall'?'de muur.':'zandzakken.'))}
+function lineCrossesWall(a,b,o){const av=vrot(a.x-o.x,a.y-o.y,o.a),bv=vrot(b.x-o.x,b.y-o.y,o.a),half=o.w/2;if((av.y>half&&bv.y>half)||(av.y<-half&&bv.y<-half))return false;let dy=bv.y-av.y;if(Math.abs(dy)<.0001)return false;let t=-av.y/dy;return t>0&&t<1&&Math.abs(av.x+(bv.x-av.x)*t)<o.len/2+4}
+function shielding(u,source){if(!source||typeof source.x!=='number')return false;return G.objects.some(o=>o.team===u.team&&o.hp>0&&['wall','sandbag'].includes(o.type)&&lineCrossesWall(source,u,o))}
+function findAimTarget(p){const candidates=[...G.units.filter(u=>u.team==='red'&&u.hp>0&&!u.loadedInto&&legalTarget('blue',u)),...G.objects.filter(o=>o.team==='red'&&o.type!=='minefield'&&o.hp>0&&legalTarget('blue',o)),G.bases.red].filter(x=>sightedEnemy('blue',x));return candidates.filter(e=>dist(e,p)<Math.max(40,e.len?e.len/2+17:e.max&& !e.type?62:stats[e.type]?.r+15||25)).sort((a,b)=>dist(a,p)-dist(b,p))[0]||null}
+function orderedAttack(units,p){
+ const target=findAimTarget(p);
+ if(target){
+  for(const u of units){
+   u.order=null;u.path=[];u.pathTimer=0;u.coverId=null;
+   u.engagementMode='attack';u.guardFacing=null;
+   u.attackOrder={id:target.id??null,base:target===G.bases.red,x:target.x,y:target.y};
+  }
+  notify(units.length+' eenheden hebben een doelwit-lock en achtervolgen de vijand indien nodig.');
+ }else{
+  // Right-click on empty ground is an AIM order, never a movement order.
+  // Existing move paths must be cleared even when issued during tactical pause.
+  for(const u of units){
+   const a=Math.atan2(p.y-u.y,p.x-u.x);
+   u.order=null;u.path=[];u.pathTimer=0;u.attackOrder=null;
+   u.engagementMode='guard';u.guardFacing=a;
+   u.aim=a;u.angle=a;
+  }
+  notify(units.length+' eenheden blijven staan en bewaken de gekozen richting.');
+ }
+}
+function resolveAttackOrder(u){const a=u.attackOrder;if(!a)return null;if(a.base){let b=G.bases[u.team==='blue'?'red':'blue'];return b.hp>0?b:null;}if(a.id!==null)return [...G.units,...G.objects].find(t=>t.id===a.id&&t.hp>0)||null;return null}
+function damage(u,amount,source,angle){if(!u||u.hp<=0||u.loadedInto)return;let reduction=(hill(u.x,u.y)?.7:1)*realDefense(u);let cover=shielding(u,source);if(cover)reduction*=.35;let diff=Math.abs(Math.atan2(Math.sin(angle-u.angle),Math.cos(angle-u.angle)));let direction=diff>2.25?1.7:diff>1.1?1.35:1;if(source?.type==='artillery'&&u.type==='tank')direction*=2.2;if(realistic()&&source?.team==='blue'&&source?.generalId==='manstein'&&diff>1.1)direction*=1.20;if(source?.team==='red')direction*=cfg[G.difficulty].dmg;u.hp-=amount*direction*reduction;if(u.hp<=0){u.hp=0;G.effects.push({x:u.x,y:u.y,r:25,life:.55,age:0});if(u.type==='tank'||u.type==='truck'||u.type==='artillery')ping('boom');if(source?.team==='blue'){if(u.type!=='decoy'){G.cash+=u.type==='tank'?5:u.type==='artillery'?6: u.type==='truck'?4: u.type==='gunner'?3:2;G.score++;recordPlayerKill()}}else if(source?.team==='red'){if(u.type!=='decoy'){G.redCash+=u.type==='tank'?5:2;G.enemyScore++}}if(u.cargo.length)for(let idd of u.cargo){let p=G.units.find(z=>z.id===idd);if(p){p.hp=0;p.loadedInto=null}}G.selected.delete(u.id);}}
+function hitBase(team,dmg,source){let b=G.bases[team];b.hp=Math.max(0,b.hp-dmg*(source?.team==='red'?cfg[G.difficulty].dmg:1));G.effects.push({x:b.x+rnd(-30,30),y:b.y+rnd(-30,30),r:15,life:.24,age:0})}
+function attack(u,t){let st=stats[u.type];if(ammoEnabled()){if(!u.maxAmmo||u.ammo<=0)return;u.ammo--;}u.fire=st.rate;let a=Math.atan2(t.y-u.y,t.x-u.x);u.aim=a;u.angle=a;let flight=st.range>270?260:st.range>200?420:560;G.projectiles.push({x:u.x,y:u.y,vx:Math.cos(a)*flight,vy:Math.sin(a)*flight,team:u.team,source:u,dmg:st.dmg*bonusFor(u)*realOffense(u)*realFireFactor(),r:st.splash||0,life:st.range/flight+.22,target:t, lob:u.type==='grenadier'||u.type==='artillery', startX:u.x,startY:u.y, endX:t.x,endY:t.y, total:Math.max(.12,dist(u,t)/flight), age:0});G.effects.push({x:u.x+Math.cos(a)*17,y:u.y+Math.sin(a)*17,r:8,life:.09,age:0});if(Math.random()<.45)ping(u.type==='tank'||u.type==='artillery'?'tank':'shot');}
+function explosion(p,rad,dmg,source){G.effects.push({x:p.x,y:p.y,r:rad,life:.54,age:0});if(rad>20)ping('boom');for(const u of G.units)if(u.hp>0&&u.team!==source.team&&!u.loadedInto&&dist(u,p)<rad+stats[u.type].r){let a=Math.atan2(p.y-u.y,p.x-u.x);damage(u,dmg*(1-dist(u,p)/(rad+stats[u.type].r)*.45),{...source,x:p.x,y:p.y},a)}for(const o of G.objects)if(o.type!=='minefield'&&o.hp>0&&o.team!==source.team&&dist(o,p)<rad+o.len/2)o.hp-=dmg*.9;let enemy=source.team==='blue'?'red':'blue';if(dist(p,G.bases[enemy])<rad+62)hitBase(enemy,dmg*.8,source)}
+function shootTarget(u){let range=stats[u.type].range*realRangeFactor();if(range<=0||(ammoEnabled()&&u.ammo<=0))return null;
+ if(u.team==='blue'&&u.engagementMode==='move')return null;
+ const inArc=e=>{
+  if(u.team!=='blue'||u.engagementMode!=='guard'||u.guardFacing==null)return true;
+  let angle=Math.atan2(e.y-u.y,e.x-u.x);
+  let diff=Math.atan2(Math.sin(angle-u.guardFacing),Math.cos(angle-u.guardFacing));
+  return Math.abs(diff)<=Math.PI*0.42;
+ };let prioritized=resolveAttackOrder(u);if(prioritized&&legalTarget(u.team,prioritized)&&dist(u,prioritized)<range+((prioritized===G.bases.red||prioritized===G.bases.blue)?40:0))return prioritized;if(u.attackOrder&&(u.attackOrder.id!==null||u.attackOrder.base))return null;let best=null,bd=range;for(let e of G.units){if(e.team===u.team||e.hp<=0||e.loadedInto)continue;let d=dist(u,e);if(d<bd&&inArc(e)&&legalTarget(u.team,e)){best=e;bd=d}}for(let o of G.objects){if(o.team===u.team||o.hp<=0||o.type==='minefield')continue;let d=dist(u,o);if(d<bd&&inArc(o)&&legalTarget(u.team,o)){best=o;bd=d}}let enemy=G.bases[u.team==='blue'?'red':'blue'];if(enemy.hp>0&&inArc(enemy)&&sightedEnemy(u.team,enemy)&&dist(u,enemy)<bd+45){best=enemy;bd=dist(u,enemy)}return best}
+// Routes use collision-aware grid navigation with proper wall clearance.
+function walkClear(a,b,r){
+ const d=dist(a,b),n=Math.max(1,Math.ceil(d/7));
+ for(let i=1;i<=n;i++){
+  const f=i/n,x=a.x+(b.x-a.x)*f,y=a.y+(b.y-a.y)*f;
+  if(!free(x,y,r))return false;
+ }
+ return true;
+}
+function pathTo(start,dest,r=8){
+ const cell=20,nx=Math.ceil(W/cell),ny=Math.ceil(H/cell);
+ if(walkClear(start,dest,r))return [{x:dest.x,y:dest.y}];
+ const key=(x,y)=>y*nx+x,xy=k=>({x:k%nx,y:Math.floor(k/nx)});
+ const point=(x,y)=>({x:(x+.5)*cell,y:(y+.5)*cell});
+ const allowed=(x,y)=>x>=0&&x<nx&&y>=0&&y<ny&&free((x+.5)*cell,(y+.5)*cell,r+2);
+ let sx=clamp(Math.floor(start.x/cell),0,nx-1),sy=clamp(Math.floor(start.y/cell),0,ny-1);
+ let gx=clamp(Math.floor(dest.x/cell),0,nx-1),gy=clamp(Math.floor(dest.y/cell),0,ny-1);
+ // A soldier standing against a wall can begin in a cell whose centre is blocked.
+ if(!allowed(sx,sy)){
+  let found=null;
+  for(let radius=1;radius<=4&&!found;radius++)for(let yy=sy-radius;yy<=sy+radius&&!found;yy++)for(let xx=sx-radius;xx<=sx+radius;xx++){
+   if(allowed(xx,yy)&&walkClear(start,point(xx,yy),r)){found={x:xx,y:yy};break;}
+  }
+  if(!found)return [];
+  sx=found.x;sy=found.y;
+ }
+ // If the clicked target is inside a wall, navigate to the closest reachable free cell.
+ if(!allowed(gx,gy)){
+  let found=null;
+  for(let radius=1;radius<=10&&!found;radius++)for(let yy=gy-radius;yy<=gy+radius;yy++)for(let xx=gx-radius;xx<=gx+radius;xx++){
+   if(allowed(xx,yy)&&(!found||Math.hypot(xx-gx,yy-gy)<found.d))found={x:xx,y:yy,d:Math.hypot(xx-gx,yy-gy)};
+  }
+  if(!found)return [];
+  gx=found.x;gy=found.y;
+ }
+ const begin=key(sx,sy),goal=key(gx,gy),open=[begin],inOpen=new Set([begin]);
+ const cost=new Map([[begin,0]]),came=new Map(),closed=new Set();
+ const h=k=>{let p=xy(k);return Math.hypot(p.x-gx,p.y-gy)};
+ const f=new Map([[begin,h(begin)]]);
+ let nearest=begin,nearestDist=h(begin),reached=false;
+ for(let loops=0;open.length&&loops<3000;loops++){
+  let best=0;
+  for(let i=1;i<open.length;i++)if((f.get(open[i])??Infinity)<(f.get(open[best])??Infinity))best=i;
+  const current=open.splice(best,1)[0];inOpen.delete(current);
+  if(closed.has(current))continue;
+  closed.add(current);
+  const d=h(current);if(d<nearestDist){nearest=current;nearestDist=d;}
+  if(current===goal){nearest=goal;reached=true;break;}
+  const {x,y}=xy(current);
+  for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]]){
+   const xx=x+dx,yy=y+dy;if(!allowed(xx,yy))continue;
+   // Block diagonal shortcuts through the corners of walls.
+   if(dx&&dy&&(!allowed(x+dx,y)||!allowed(x,y+dy)))continue;
+   const np=point(xx,yy),cp=point(x,y);
+   if(!walkClear(cp,np,r))continue;
+   const nk=key(xx,yy);if(closed.has(nk))continue;
+   let ng=cost.get(current)+Math.hypot(dx,dy)*(muddy(np.x,np.y)?1.8:1);
+   if(ng<(cost.get(nk)??Infinity)){
+    came.set(nk,current);cost.set(nk,ng);f.set(nk,ng+h(nk));
+    if(!inOpen.has(nk)){open.push(nk);inOpen.add(nk);}
+   }
+  }
+ }
+ if(nearest===begin&&!reached)return [];
+ let route=[],k=nearest;
+ for(let n=0;n<400&&k!==begin;n++){
+  route.push(point(k));if(!came.has(k))break;k=came.get(k);
+ }
+ route.reverse();
+ if(reached&&walkClear(route[route.length-1]||start,dest,r))route.push({x:dest.x,y:dest.y});
+ // Remove unnecessary corners while keeping the full path collision-free.
+ let smoothed=[],anchor=start;
+ for(let i=0;i<route.length;){
+  let j=route.length-1;
+  while(j>i&&!walkClear(anchor,route[j],r))j--;
+  smoothed.push(route[j]);anchor=route[j];i=j+1;
+ }
+ return smoothed;
+}
+function command(units,p){
+ // Every selected active unit gets its own reachable destination, even if the click
+ // falls on another friendly soldier. Do not skip an order when a slot hits terrain.
+ const movers=units.filter(u=>u.hp>0&&!u.loadedInto),cols=Math.ceil(Math.sqrt(movers.length));
+ const spacing=movers.some(u=>['tank','truck','artillery'].includes(u.type))?42:28;
+ const reserved=[];let issued=0;
+ movers.forEach((u,i)=>{
+   const row=Math.floor(i/cols),col=i%cols;
+   const desired={x:clamp(p.x+(col-(cols-1)/2)*spacing,20,W-20),y:clamp(p.y+(row-(Math.ceil(movers.length/cols)-1)/2)*spacing,20,H-20)};
+   let chosen=null,best=Infinity;
+   // Consider progressively wider positions around the desired formation slot.
+   // Each candidate must be walkable and cannot overlap another squad member's goal.
+   for(let radius=0;radius<=180;radius+=20){
+     const count=radius===0?1:Math.max(12,Math.ceil(2*Math.PI*radius/20));
+     for(let k=0;k<count;k++){
+       const a=k/count*Math.PI*2+i*0.37;
+       const dest={x:clamp(desired.x+Math.cos(a)*radius,20,W-20),y:clamp(desired.y+Math.sin(a)*radius,20,H-20)};
+       if(!free(dest.x,dest.y,stats[u.type].r+2)||reserved.some(q=>dist(q,dest)<spacing*.8))continue;
+       let route=pathTo(u,dest,stats[u.type].r);
+       if(!route.length && dist(u,dest)>Math.max(9,stats[u.type].r))continue;
+       // A partial path from an inaccessible destination must not be assigned.
+       if(route.length&&dist(route[route.length-1],dest)>28)continue;
+       const score=dist(desired,dest)+dist(u,dest)*.015;
+       if(score<best){chosen=dest;best=score}
+     }
+     if(chosen)break;
+   }
+   // If one soldier has no route, give feedback rather than silently dropping them.
+   if(!chosen){u.order=null;u.path=[];return}
+   reserved.push(chosen);u.order=chosen;u.attackOrder=null;u.coverId=null;u.engagementMode='move';u.guardFacing=null;
+   u.path=[];u.pathTimer=0;issued++;
+ });
+ notify(issued+'/'+movers.length+' troepen kregen een verplaatsingsbevel.'+(issued<movers.length?' Eenheden zonder bereikbare route blijven staan.':''));
+}
+function retreat(){const b=G.bases.blue;for(const u of selected())if(!u.loadedInto){let vx=b.x-u.x,vy=b.y-u.y,d=Math.hypot(vx,vy)||1;let dest={x:clamp(u.x+vx/d*115,20,W-20),y:clamp(u.y+vy/d*115,20,H-20)};u.order=dest;u.attackOrder=null;u.coverId=null;u.engagementMode='move';u.guardFacing=null;u.path=[];u.pathTimer=0;}}
+function selected(){return G.units.filter(u=>G.selected.has(u.id)&&u.hp>0)}
+function tick(dt){if(!G||!G.playing||G.paused||G.over)return;G.elapsed+=dt;updateEnvironment(dt);updateAirlifts(dt);repairUnits(dt);resupply(dt);updateMinefields();G.income+=dt;while(G.income>=3){G.income-=3;G.cash+=Math.max(1,Math.round((3+G.caps.filter(p=>p.owner==='blue').length)*cfg[G.difficulty].income));G.redCash+=3+G.caps.filter(p=>p.owner==='red').length;}
+G.ai+=dt;if(realistic()&&G.elapsed>25&&!G.aiBuilding){G.aiBuilding=true;placeBuilding('red','bunker',1025,575,true)}if(realistic()&&G.elapsed>65&&!G.aiRadar){G.aiRadar=true;placeBuilding('red','radar',1025,170,true)}if(G.ai>3.2*cfg[G.difficulty].spawn){G.ai=0;let types=['rifle','rifle','gunner','rifle','grenadier','tank','artillery'];if(realistic())types.push('scout','decoy');let choice=types[Math.floor(rnd(0,types.length))];if(G.redCash<recruitCost('red',choice))choice='rifle';let bp=G.bases.red;for(let attempts=0;attempts<15;attempts++){let x=bp.x+rnd(-120,65),y=bp.y+rnd(-130,130);if(spawn('red',choice,x,y))break;}if(G.difficulty!=='easy'&&Math.random()<.1)place('red','sandbag',rnd(830,1090),rnd(190,560),Math.PI/2,false);}
+for(const u of G.units){if(u.hp<=0||u.loadedInto)continue;let st=stats[u.type];u.fire-=dt;u.pathTimer-=dt;if(u.attackOrder){let target=resolveAttackOrder(u);if(target&&fogEnabled()&&!spotted(u.team,target)){u.attackOrder=null;u.order=null;u.path=[];}else if(target){let d=dist(u,target),desired=Math.max(22,st.range-(target.max&&!target.type?30:8));if(d>desired&&st.speed>0){let vx=target.x-u.x,vy=target.y-u.y,ratio=Math.max(0,(d-desired)/d);u.order={x:clamp(u.x+vx*ratio,20,W-20),y:clamp(u.y+vy*ratio,20,H-20)};}else{u.order=null;u.path=[]}}else if(u.attackOrder.id===null){u.order={x:u.attackOrder.x,y:u.attackOrder.y};u.attackOrder=null}else{u.attackOrder=null;u.order=null;u.path=[];}}if(u.team==='red'&&!u.order&&!u.attackOrder){let bait=realistic()?G.units.find(v=>v.team==='blue'&&v.type==='decoy'&&v.hp>0&&spotted('red',v)&&!identifiedDecoy('red',v)&&dist(u,v)<350):null;if(bait){u.order={x:bait.x+rnd(-14,14),y:bait.y+rnd(-14,14)};}else{let points=G.caps.filter(c=>c.owner!=='red');let t=points.length?points.reduce((a,b)=>dist(u,a)<dist(u,b)?a:b):G.bases.blue;u.order={x:t.x+rnd(-22,22),y:t.y+rnd(-22,22)};}}
+if(u.order){
+ let d=dist(u,u.order);
+ if(d<Math.max(9,st.r)){
+  u.order=null;u.path=[];
+ }else{
+  if(!u.path.length||u.pathTimer<=0){
+   u.path=pathTo(u,u.order,st.r);
+   u.pathTimer=2;
+  }
+  // Only move along verified collision-free segments; never walk into a wall.
+  while(u.path.length>1&&dist(u,u.path[0])<Math.max(10,st.r*.75))u.path.shift();
+  if(u.path.length){
+   let target=u.path[0],dd=dist(u,target);
+   if(dd>1){
+    let a=Math.atan2(target.y-u.y,target.x-u.x);
+    let speed=st.speed*mobileSpeed(u)*(muddy(u.x,u.y)?.54:1);
+    if(hill(u.x,u.y))speed*=.86;
+    if(G.objects.some(o=>o.type==='sandbag'&&o.hp>0&&dist(o,u)<57))speed*=.62;
+    let step=Math.min(dd,speed*dt),nx=u.x+Math.cos(a)*step,ny=u.y+Math.sin(a)*step;
+    u.angle=a;
+    if(walkClear(u,{x:nx,y:ny},st.r)){
+     u.x=nx;u.y=ny;
+     if(dist(u,target)<Math.max(5,st.r*.35))u.path.shift();
+    }else{u.path=[];u.pathTimer=0;}
+   }
+  }
+ }
+}
+if(u.team==='blue'&&u.engagementMode==='guard'&&u.guardFacing!=null&&!u.order)u.angle=u.guardFacing;let tar=shootTarget(u);if(tar&&u.fire<=0){attack(u,tar)} }
+for(const o of G.objects){if(o.hp<=0||o.type!=='turret')continue;o.fire-=dt;if(o.fire>0)continue;let target=G.units.filter(u=>u.team!==o.team&&u.hp>0&&!u.loadedInto&&dist(u,o)<210&&legalTarget(o.team,u)).sort((a,b)=>dist(a,o)-dist(b,o))[0];if(target){o.fire=.55;let a=Math.atan2(target.y-o.y,target.x-o.x);G.projectiles.push({x:o.x,y:o.y,vx:Math.cos(a)*590,vy:Math.sin(a)*590,team:o.team,source:{team:o.team,type:'turret'},dmg:14,r:0,life:.5});ping()}}
+tacticalBuildingFire(dt);for(const p of G.projectiles){let old={x:p.x,y:p.y};p.age+=dt;if(p.lob){let t=clamp(p.age/p.total,0,1);p.x=p.startX+(p.endX-p.startX)*t;p.y=p.startY+(p.endY-p.startY)*t;}else{p.x+=p.vx*dt;p.y+=p.vy*dt;}p.life-=dt;let hit=null;if(p.lob&&p.age>=p.total){explosion(p,p.r||30,p.dmg,p.source);p.life=0;continue;}if(p.lob)continue;for(let u of G.units)if(u.team!==p.team&&u.hp>0&&!u.loadedInto&&dist(u,p)<stats[u.type].r+4){hit=u;break}if(!hit){for(const o of G.objects){if(o.hp<=0||o.type==='minefield')continue;let d=segmentDist(p,o);if(Math.abs(d.along)<o.len/2+3&&d.perp<o.w/2+3){hit=o;break}}}let eb=G.bases[p.team==='blue'?'red':'blue'];if(!hit&&dist(p,eb)<57&&eb.hp>0)hit=eb;if(hit||p.life<=0){p.life=0;if(hit){let a=Math.atan2(p.vy,p.vx);if(p.r)explosion(p,p.r,p.dmg,p.source);else if(hit===eb)hitBase(p.team==='blue'?'red':'blue',p.dmg,p.source);else if('max' in hit&&'type' in hit&&'angle' in hit)damage(hit,p.dmg,p.source,a+Math.PI);else if('len' in hit)hit.hp-=p.dmg;else damage(hit,p.dmg,p.source,a+Math.PI);G.effects.push({x:p.x,y:p.y,r:10,life:.16,age:0})}}}
+G.projectiles=G.projectiles.filter(p=>p.life>0);G.units=G.units.filter(u=>u.hp>0);G.objects=G.objects.filter(o=>o.hp>0);
+for(const c of G.caps){let near=G.units.filter(u=>u.hp>0&&!u.loadedInto&&dist(u,c)<48);let b=near.some(u=>u.team==='blue'),r=near.some(u=>u.team==='red');if(b!==r){let team=b?'blue':'red';if(c.by!==team){c.progress=0;c.by=team}if(c.owner!==team){c.progress+=dt;if(c.progress>=10){c.owner=team;c.progress=0;c.by=null;log((team==='blue'?'Jij hebt ':'De vijand heeft ')+c.name+' veroverd.')}}}else if(!b&&!r){c.progress=Math.max(0,c.progress-dt*.35);if(c.progress===0)c.by=null}}
+for(let team of ['red','blue']){let base=G.bases[team],attackTeam=team==='red'?'blue':'red';let enemies=G.units.some(u=>u.team===attackTeam&&!u.loadedInto&&dist(u,base)<68),defenders=G.units.some(u=>u.team===team&&!u.loadedInto&&dist(u,base)<68),all=G.caps.every(c=>c.owner===attackTeam);if(base.hp<=0&&all&&enemies&&!defenders){base.progress+=dt;if(base.progress>=30){end(attackTeam==='blue');break}}else base.progress=Math.max(0,base.progress-dt*.35)}
+for(const fx of G.effects)fx.age+=dt;G.effects=G.effects.filter(fx=>fx.age<fx.life);uiClock+=dt;if(uiClock>.25){uiClock=0;refresh()}}
+function end(won){G.over=true;G.playing=false;$('modalTitle').textContent=won?'OVERWINNING':'NEDERLAAG';$('modalDesc').textContent=won?'Alle vier de posten én de vijandelijke basis veroverd. '+G.score+' vijanden verslagen.':'De tegenstander heeft jouw basis overgenomen. Probeer een andere kaart, versterk je muren of gebruik terugtrekbevelen.';$('start').textContent='NIEUWE OPERATIE →';$('overlay').style.display='flex'}
+function refresh(){if(!G)return;$('cash').textContent=Math.floor(G.cash);$('captures').textContent=G.caps.filter(p=>p.owner==='blue').length+'/4';$('enemies').textContent=G.units.filter(u=>u.team==='red'&&(!realistic()||spotted('blue',u))).length;$('clock').textContent=String(Math.floor(G.elapsed/60)).padStart(2,'0')+':'+String(Math.floor(G.elapsed%60)).padStart(2,'0');$('objectives').innerHTML=G.caps.map((c,i)=>`<div class="target"><div class="line"><span>${i+1}. ${c.name}</span><small>${c.owner==='blue'?'JOUW POST':c.owner==='red'?'VIJAND':'NEUTRAAL'}</small></div><div class="bar"><i style="width:${c.owner==='blue'?100:c.progress*10}%;background:${c.by==='red'?'#ee8580':'#67d7eb'}"></i></div></div>`).join('')+`<div class="target"><div class="line"><span>5. VIJANDELIJKE BASIS</span><small>${Math.ceil(G.bases.red.hp)} HP</small></div><div class="bar"><i style="width:${G.bases.red.hp/G.bases.red.max*100}%;background:#ec827d"></i></div><small>${G.bases.red.hp<=0?'Bezetting: '+Math.floor(G.bases.red.progress)+'/30 sec':'Vernietig HP en verover alle posten'}</small></div>`;let sel=selected();$('selectedInfo').innerHTML=sel.length?`<b>${sel.length} eenheden</b><br><small>Totale HP: ${Math.ceil(sel.reduce((s,u)=>s+u.hp,0))}<br>${sel.map(u=>stats[u.type].name+(ammoEnabled()&&u.maxAmmo?' ['+ammunitionStatus(u)+']':'')).slice(0,4).join(', ')}${sel.length>4?'…':''}<br>${[...new Set(sel.map(u=>u.generalId).filter(Boolean))].map(id=>{const g=getGeneral(id);return g?('★ '+g.name+' (+'+Math.round(g.attack*100)+'% aanval)'):''}).join('<br>')||'Geen generaal toegewezen'}</small>`:'Geen eenheden geselecteerd';$('pause').textContent=G.paused?'▶ HERVAT':'Ⅱ PAUZE';$('pausedMark').hidden=!G.paused;renderGenerals();renderEnvironment();updateShopPrices()}
+function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(x,y,w,h)}function circle(x,y,r,c){ctx.fillStyle=c;ctx.beginPath();ctx.arc(x,y,r,0,T);ctx.fill()}function line(x,y,X,Y,c,w=1){ctx.strokeStyle=c;ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(X,Y);ctx.stroke()}
+function render(){if(!G)return;let desert=G.map.kind==='desert',ground=desert?'#6c6547':'#344f40';rect(0,0,W,H,ground);for(let y=0;y<H;y+=35)for(let x=0;x<W;x+=35){let n=(Math.sin(x*.07+y*.03+G.mapIx*4)+Math.cos(y*.085-x*.03))*.5;rect(x,y,35,35,`rgba(${desert?'140,113,63':'108,136,90'},${(.04+Math.abs(n)*.052).toFixed(2)})`)}
+// roads and terrain
+ctx.save();ctx.setLineDash([13,13]);line(40,372,1160,372,'#897f5c55',29);ctx.restore();for(const h of G.map.hills){ctx.save();ctx.translate(h.x,h.y);ctx.rotate(h.a);ctx.fillStyle='#64785b';ctx.beginPath();ctx.ellipse(0,0,h.rx,h.ry,0,0,T);ctx.fill();for(let i=0;i<3;i++){ctx.strokeStyle=i%2?'#93a57866':'#253e3288';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(-7,-4,h.rx*(.78-i*.21),h.ry*(.78-i*.21),0,0,T);ctx.stroke()}ctx.restore()}
+for(const m of G.map.mud){ctx.fillStyle='#4b5a48bb';ctx.beginPath();ctx.ellipse(m.x,m.y,m.rx,m.ry,0,0,T);ctx.fill()}
+for(const w of G.map.water){ctx.save();if(w.kind==='ellipse'){ctx.translate(w.x,w.y);ctx.scale(w.rx,w.ry);circle(0,0,1,'#336479');ctx.strokeStyle='#74a5a088';ctx.lineWidth=.025;ctx.beginPath();ctx.arc(0,0,.93,0,T);ctx.stroke()}else{let x=w.kind==='river'?w.x-w.w/2:w.edge;rect(x,0,w.w,H,'#32677c');for(let y=0;y<750;y+=30)line(x+9,y+G.elapsed*2%20,x+w.w-9,y+9+G.elapsed*2%20,'#7bb9c43a',2);for(const b of w.bridges){rect(x-5,b-w.bh/2,w.w+10,w.bh,'#81755b');for(let xx=x;xx<x+w.w;xx+=12)line(xx,b-w.bh/2,xx,b+w.bh/2,'#544b3a77',2)}}ctx.restore()}
+for(const z of G.map.trees){if(isWater(z.x,z.y))continue;circle(z.x+1,z.y+2,z.r+2,'#1b32299c');circle(z.x,z.y,z.r,'#34533b');circle(z.x-1,z.y-1,z.r*.58,'#577549')}for(const z of G.map.stones)if(!isWater(z.x,z.y)){circle(z.x,z.y,z.r,'#84918a55');circle(z.x-1,z.y-1,z.r*.55,'#a3a69b77')}
+for(const tm of ['blue','red']){let b=G.bases[tm],co=tm==='blue'?'#65cde0':'#e67f7e';ctx.strokeStyle=co+'55';ctx.lineWidth=2;ctx.setLineDash([8,6]);ctx.beginPath();ctx.arc(b.x,b.y,153,0,T);ctx.stroke();ctx.setLineDash([])}
+for(const c of G.caps){let col=c.owner==='blue'?'#76e0ee':c.owner==='red'?'#f4857e':'#e0d6ab';circle(c.x,c.y,50,col+'16');ctx.lineWidth=3;ctx.strokeStyle=col;ctx.beginPath();ctx.arc(c.x,c.y,37,-Math.PI/2,-Math.PI/2+(c.owner==='neutral'?(c.progress/10)*T:T));ctx.stroke();circle(c.x,c.y,23,'#182a2bcc');ctx.fillStyle=col;ctx.font='bold 12px system-ui';ctx.textAlign='center';ctx.fillText('⚑',c.x,c.y+5);ctx.font='bold 10px system-ui';ctx.fillText(c.name,c.x,c.y-56);if(c.progress>0){rect(c.x-32,c.y+47,64,5,'#14292b');rect(c.x-32,c.y+47,c.progress/10*64,c.by==='blue'?'#73dcea':'#ee8080')}}
+for(const team of ['blue','red']){const b=G.bases[team],col=team==='blue'?'#80dce8':'#f08883';circle(b.x,b.y,67,team==='blue'?'#1f5261':'#693d3c');ctx.strokeStyle=col;ctx.lineWidth=4;ctx.beginPath();ctx.arc(b.x,b.y,65,0,T);ctx.stroke();ctx.save();ctx.translate(b.x,b.y);ctx.rotate(Math.PI/4);rect(-37,-37,74,74,'#253c43');rect(-26,-26,52,52,team==='blue'?'#5f8790':'#9b6058');rect(-15,-15,30,30,'#21303a');ctx.restore();ctx.textAlign='center';ctx.font='bold 13px system-ui';ctx.fillStyle='#f0f4f1';ctx.fillText(team==='blue'?'JOUW BASIS':'VIJAND',b.x,b.y-88);rect(b.x-50,b.y+78,100,8,'#1a2730');rect(b.x-50,b.y+78,100*b.hp/b.max,8,col);if(b.hp<=0){ctx.fillStyle=col;ctx.font='bold 12px system-ui';ctx.fillText('BEZET: '+Math.floor(b.progress)+'/30',b.x,b.y+107)}}
+for(const o of G.objects){if(o.type==='minefield'&&o.team==='red')continue;if(fogEnabled()&&o.team==='red'&&!spotted('blue',o))continue;if(o.type==='minefield'){ctx.save();ctx.translate(o.x,o.y);ctx.rotate(o.a);rect(-50,-8,100,16,'#a88e4655');ctx.strokeStyle='#edcf67';ctx.lineWidth=1.5;ctx.setLineDash([7,5]);ctx.strokeRect(-50,-8,100,16);ctx.setLineDash([]);ctx.fillStyle='#f4d581';for(let j=-4;j<=4;j++)circle(j*11,0,2.5,'#f4d581');ctx.restore();continue;}if(realistic()&&BUILDINGS[o.type]){drawBuilding(o);continue;}ctx.save();ctx.translate(o.x,o.y);ctx.rotate(o.a);let color=o.team==='blue'?'#87d2dc':'#db9385';if(o.type==='wall'){rect(-o.len/2-4,-o.w/2-4,o.len+8,o.w+8,'#253331');rect(-o.len/2,-o.w/2,o.len,o.w,'#868f85');for(let x=-o.len/2;x<o.len/2;x+=21)line(x,-o.w/2,x,o.w/2,'#48565d',2)}else if(o.type==='sandbag'){rect(-o.len/2,-o.w/2,o.len,o.w,'#5f5740');for(let x=-o.len/2+8;x<o.len/2;x+=18){ctx.beginPath();ctx.ellipse(x,0,8,6,0,0,T);ctx.fillStyle='#b1a17b';ctx.fill();ctx.strokeStyle='#746a51';ctx.stroke()}}else{circle(0,0,18,'#3e555a');circle(0,0,13,color);rect(0,-3,25,6,'#27343a')}ctx.restore();if(o.hp<o.max){rect(o.x-25,o.y-27,50,4,'#17232b');rect(o.x-25,o.y-27,50*o.hp/o.max,4,color)}}
+for(const u of G.units){if(u.loadedInto||u.hp<=0)continue;if(fogEnabled()&&u.team==='red'&&!spotted('blue',u))continue;let st=stats[u.type],col=u.team==='blue'?'#79ddec':'#ef8880';circle(u.x+2,u.y+3,st.r+2,'#0b151e88');ctx.save();ctx.translate(u.x,u.y);ctx.rotate(u.angle);if(['tank','truck','artillery','decoy'].includes(u.type)){rect(-st.r,-st.r*.75,st.r*2,st.r*1.5,u.team==='blue'?'#497780':'#9c6255');if(u.type==='tank'||u.type==='decoy'){rect(-10,-10,20,20,'#2e4247');rect(3,-3,st.r+13,6,'#1b2f32')}else if(u.type==='artillery'){circle(0,0,9,'#25353c');rect(2,-4,st.r+16,8,'#222e35')}else{rect(-9,-9,18,18,'#b1b2a4');rect(-st.r,-st.r,st.r*2,3,'#243036');rect(-st.r,st.r-3,st.r*2,3,'#243036')}}else{circle(0,0,st.r,col);circle(0,0,st.r*.65,u.team==='blue'?'#284a55':'#633d3d');rect(3,-2,st.r+9,4,'#242a2e');if(u.type==='grenadier')circle(3,5,3,'#e9c977');if(u.type==='scout'){circle(0,0,4,'#c1fbd6');ctx.strokeStyle='#a5f4d8';ctx.lineWidth=2;ctx.strokeRect(-6,-6,12,12)}if(u.type==='gunner')rect(7,-4,12,8,'#242a2e')}ctx.restore();if(fogEnabled()&&u.type==='scout'&&u.team==='blue'&&G.selected.has(u.id)){ctx.save();ctx.strokeStyle='rgba(122,242,205,.5)';ctx.setLineDash([9,9]);ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(u.x,u.y,Math.min(visionRadius('blue',u),420),0,T);ctx.stroke();ctx.setLineDash([3,6]);ctx.strokeStyle='rgba(255,232,131,.7)';ctx.beginPath();ctx.arc(u.x,u.y,(G.weather==='fog'?.76:1)*(G.phase==='night'?.82:1)*185,0,T);ctx.stroke();ctx.restore()}if(u.type==='decoy'&&(u.team==='blue'||identifiedDecoy('blue',u))){ctx.save();ctx.shadowBlur=15;ctx.shadowColor='#ffee90';ctx.strokeStyle='#fff2a0';ctx.lineWidth=2;ctx.setLineDash([4,4]);ctx.beginPath();ctx.arc(u.x,u.y,st.r+6+Math.sin(G.elapsed*5)*2,0,T);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#ffeda6';ctx.font='bold 10px system-ui';ctx.textAlign='center';ctx.fillText('NEP',u.x,u.y-st.r-12);ctx.restore()}if(G.selected.has(u.id)){ctx.strokeStyle='#f8e39a';ctx.lineWidth=2;ctx.beginPath();ctx.arc(u.x,u.y,st.r+7,0,T);ctx.stroke();if(u.order){line(u.x,u.y,u.order.x,u.order.y,'#f1e09888',1);circle(u.order.x,u.order.y,4,'#f1e098')}}if(u.team==='blue'&&u.generalId){ctx.strokeStyle='#f6ce79';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(u.x,u.y,st.r+4,0,T);ctx.stroke();ctx.fillStyle='#ffe2a4';ctx.font='bold 11px system-ui';ctx.textAlign='center';ctx.fillText('★',u.x,u.y-st.r-15)}if(realistic()&&u.team==='blue'&&u.supplyTime>0){ctx.strokeStyle='#85ffb1';ctx.lineWidth=3;ctx.beginPath();ctx.arc(u.x,u.y,st.r+11,-Math.PI/2,-Math.PI/2+T*Math.min(1,u.supplyTime/3));ctx.stroke()}if(ammoEnabled()&&u.team==='blue'&&u.maxAmmo){const q=Math.max(0,u.ammo/u.maxAmmo);ctx.strokeStyle='#493e18';ctx.lineWidth=4;ctx.beginPath();ctx.arc(u.x,u.y,st.r+5,0,T);ctx.stroke();ctx.strokeStyle='#ffd747';ctx.lineWidth=4;ctx.beginPath();ctx.arc(u.x,u.y,st.r+5,-Math.PI/2,-Math.PI/2+T*q);ctx.stroke()}if(ammoEnabled()&&u.team==='blue'&&u.maxAmmo&&u.ammo===0){ctx.fillStyle='#ffe299';ctx.textAlign='center';ctx.font='bold 10px system-ui';ctx.fillText('LEEG',u.x,u.y-st.r-20)}if(u.hp<u.max){rect(u.x-18,u.y-st.r-11,36,4,'#243138');rect(u.x-18,u.y-st.r-11,36*u.hp/u.max,col)}if(u.type==='truck'&&u.cargo.length){ctx.font='bold 10px system-ui';ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText(u.cargo.length+'/6',u.x,u.y-20)}}
+drawAirlifts();for(const p of G.projectiles){circle(p.x,p.y-(p.lob?Math.sin(Math.PI*clamp(p.age/p.total,0,1))*36:0),p.r?3.5:2,p.team==='blue'?'#ffe6a5':'#ffc3a4')}for(const fx of G.effects){let t=fx.age/fx.life;ctx.globalAlpha=1-t;ctx.strokeStyle=fx.r>20?'#ffba6e':'#fef0b5';ctx.lineWidth=4;ctx.beginPath();ctx.arc(fx.x,fx.y,fx.r*(.25+t),0,T);ctx.stroke();ctx.globalAlpha=1}
+if(mouse.box){let b=mouse.box;ctx.fillStyle='#7ce2f023';ctx.strokeStyle='#8ce9f5';ctx.lineWidth=1;ctx.fillRect(Math.min(b.x,mouse.x),Math.min(b.y,mouse.y),Math.abs(b.x-mouse.x),Math.abs(b.y-mouse.y));ctx.strokeRect(Math.min(b.x,mouse.x),Math.min(b.y,mouse.y),Math.abs(b.x-mouse.x),Math.abs(b.y-mouse.y))}
+if(['wall','sandbag','turret','minefield'].includes(tool)||realistic()&&BUILDINGS[tool]){ctx.save();ctx.translate(mouse.x,mouse.y);ctx.rotate(rotation);ctx.globalAlpha=.5;rect(tool==='turret'?-15:['wall','minefield'].includes(tool)?-50:-57,-8,tool==='turret'?30:['wall','minefield'].includes(tool)?100:115,16,'#8fe8ee');ctx.restore()}
+paintEnvironment()
+}
+function resize(){let b=canvas.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.max(1,Math.floor(b.width*d));canvas.height=Math.max(1,Math.floor(b.height*d));ctx.setTransform(canvas.width/W,0,0,canvas.height/H,0,0)}function pos(e){let r=canvas.getBoundingClientRect();return{x:clamp((e.clientX-r.left)/r.width*W,0,W),y:clamp((e.clientY-r.top)/r.height*H,0,H)}}
+canvas.addEventListener('pointerdown',e=>{if(!G?.playing||e.button!==0)return;canvas.setPointerCapture(e.pointerId);mouse.down=true;mouse.start=pos(e);mouse.x=mouse.start.x;mouse.y=mouse.start.y;mouse.box=null});canvas.addEventListener('pointermove',e=>{let p=pos(e);mouse.x=p.x;mouse.y=p.y;if(mouse.down&&mouse.start&&dist(p,mouse.start)>10)mouse.box=mouse.start});canvas.addEventListener('pointerup',e=>{
+ if(!G?.playing||e.button!==0)return;
+ let p=pos(e);mouse.down=false;
+ if(mouse.box){
+  const loX=Math.min(mouse.start.x,p.x),hiX=Math.max(mouse.start.x,p.x),loY=Math.min(mouse.start.y,p.y),hiY=Math.max(mouse.start.y,p.y);
+  if(!e.shiftKey)G.selected.clear();
+  G.units.filter(u=>u.team==='blue'&&u.hp>0&&!u.loadedInto&&u.x>=loX&&u.x<=hiX&&u.y>=loY&&u.y<=hiY).forEach(u=>G.selected.add(u.id));
+  mouse.box=null;placementMode=false;refresh();return;
+ }
+ // Click on an existing friendly unit to select it, even when recruit mode is active.
+ // When a selected squad clicks one of its own members in command mode, keep the
+ // entire squad selected and treat the click as a group move order.
+ let unit=[...G.units].reverse().find(u=>u.team==='blue'&&u.hp>0&&!u.loadedInto&&dist(u,p)<stats[u.type].r+8);
+ if(unit&&(placementMode||!G.selected.has(unit.id)||G.selected.size<=1||e.shiftKey)){
+  if(!e.shiftKey)G.selected.clear();
+  if(e.shiftKey&&G.selected.has(unit.id))G.selected.delete(unit.id);else G.selected.add(unit.id);
+  placementMode=false;refresh();return;
+ }
+ if(e.ctrlKey&&stats[tool]){batchSpawn(p.x,p.y);refresh();return;}
+ if(placementMode&&(['wall','sandbag','turret','minefield'].includes(tool)||(realistic()&&BUILDINGS[tool])||tool==='bomb'||realistic()&&tool==='airlift'||stats[tool]&&typeAvailable(tool))){
+  if(['wall','sandbag','turret','minefield'].includes(tool)||(realistic()&&BUILDINGS[tool])){place('blue',tool,p.x,p.y,rotation);refresh();return;}
+  if(tool==='airlift'){startAirlift(p);return;}
+  if(tool==='bomb'){
+   if(G.cash<8)return notify('Luchtaanval kost 8 credits.');if(fogEnabled()&&!spotted('blue',p))return notify('Geen actuele verkenningsinformatie op deze positie. Stuur eerst een verkenner of radar.');G.cash-=8;
+   const before=G.score,cashBefore=G.cash;
+   explosion(p,78,95,{team:'blue',type:'bomb'});
+   notify('Luchtaanval: '+(G.score-before)+' kills · +'+(G.cash-cashBefore)+' credits');refresh();return;
+  }
+  const placed=spawn('blue',tool,p.x,p.y);
+  if(!placed&&dist(p,G.bases.blue)<=spawnRadius('blue'))notify('Geen vrije spawnplek op deze locatie.');
+  refresh();return;
+ }
+ let coverWall=wallNearPoint(p,'blue');
+ if(coverWall&&selected().length){hideBehind(selected(),coverWall);refresh();return;}
+ const moving=selected().filter(u=>!u.loadedInto);
+ if(moving.length){command(moving,p);refresh();return;}
+ // Allow first-time spawning without an existing selection.
+ if(stats[tool]&&typeAvailable(tool)){spawn('blue',tool,p.x,p.y);refresh();return;}
+ if(unit){G.selected.clear();G.selected.add(unit.id);refresh();}
+});canvas.addEventListener('contextmenu',e=>{e.preventDefault();if(!G?.playing)return;const units=selected().filter(u=>!u.loadedInto);if(!units.length)return notify('Selecteer eerst een of meerdere eenheden.');orderedAttack(units,pos(e));refresh()});
+let placementMode=true;function setTool(t){if(!realistic()&&(['scout','decoy','airlift'].includes(t)||BUILDINGS[t]))return notify('Deze optie is alleen beschikbaar in Realistic Battlefield.');tool=t;placementMode=true;document.querySelectorAll('[data-tool]').forEach(x=>x.classList.toggle('active',x.dataset.tool===t));notify(t==='bomb'?'Klik voor een luchtaanval (8 credits).':t==='wall'||t==='sandbag'?'Klik om te bouwen; draai 360° met Q en E. Selecteer daarna soldaten en klik op de muur voor dekking.':t==='minefield'?'Klik in eigen gebied om een mijnenveld van muurlengte te leggen (20 credits); draai met Q/E.':t==='turret'?'Klik in jouw gebied voor een geschutstoren.':BUILDINGS[t]?'Klik in eigen gebied om '+BUILDINGS[t].name+' te bouwen ('+BUILDINGS[t].cost+' credits).':t==='airlift'?'Klik op een vrije landingsplek voor tien machinegunners (45 credits).':'Plaats '+stats[t].name+' met linksklik in je spawnzone; een gekozen troepentype heeft voorrang boven verplaatsen.')}
+function updateShopPrices(){if(!G)return;for(const btn of document.querySelectorAll('#shop .purchase[data-tool]')){
+ const t=btn.dataset.tool;if(!stats[t])continue;const el=btn.querySelector('em');if(el)el.textContent=recruitCost('blue',t);
+ }}
+$('gameMode').addEventListener('change',()=>{const mode=$('gameMode').value;const real=mode==='realistic';$('realisticSetup').hidden=!real;$('modeExplainer').textContent=real?'Realistic Battlefield: kies onafhankelijk No Vision en No Munition; verder verkenners, rijdende neptanks, helikopters, weer en gebouwen.':'De oorspronkelijke V12-spelregels: geen extra gebouwen of weereffecten.';});
+for(const [key,b] of Object.entries(BUILDINGS)){
+ const btn=document.createElement('button');btn.className='building-buy';btn.dataset.tool=key;
+ btn.innerHTML='<span class="b-icon">'+b.icon+'</span><span class="b-body"><b>'+b.name+'</b><small>'+b.note+'</small></span><span class="cost">'+b.cost+'</span>';
+ btn.addEventListener('click',()=>setTool(key));$('buildingShop').appendChild(btn);
+}
+const shop=$('shop');for(const [k,s] of Object.entries(stats)){if(k==='scout'||k==='decoy')continue;const b=document.createElement('button');b.className='purchase';b.dataset.tool=k;b.innerHTML=`<div class="emblem">${s.sym}</div><span><b>${s.name}</b><small>${k==='truck'?'6 plaatsen · aanraken: na 3 sec munitie + HP' :k==='artillery'?'Traag · anti-tank':k==='grenadier'?'Splash · kwetsbaar':k==='tank'?'Snel · lange afstand':s.hp+' HP · '+s.range+' bereik'}</small></span><em>${s.cost}</em>`;b.onclick=()=>setTool(k);shop.append(b)}for(const key of ['scout','decoy']){
+ const st=stats[key],btn=document.createElement('button');btn.className='purchase';btn.dataset.tool=key;
+ const text=key==='scout'?'Hoge snelheid · groot zicht · ontmaskert neptanks':'Rijdt en misleidt vijanden · kan niet schieten';
+ btn.innerHTML=`<div class="emblem">${st.sym}</div><span><b>${st.name}</b><small>${text}</small></span><em>${st.cost}</em>`;
+ btn.onclick=()=>setTool(key);$('specialShop').appendChild(btn);
+}
+const heliBtn=document.createElement('button');heliBtn.className='purchase';heliBtn.dataset.tool='airlift';heliBtn.innerHTML='<div class="emblem">🚁</div><span><b>Helikopterdropping</b><small>10 machinegunners op gekozen locatie · 45 credits</small></span><em>45</em>';
+heliBtn.onclick=()=>setTool('airlift');$('specialShop').appendChild(heliBtn);
+const bomb=document.createElement('button');bomb.className='purchase';bomb.dataset.tool='bomb';bomb.innerHTML='<div class="emblem">✦</div><span><b>Luchtaanval</b><small>Enige aanval zonder nabijgelegen eenheid</small></span><em>8</em>';bomb.onclick=()=>setTool('bomb');shop.append(bomb);document.querySelectorAll('[data-tool]').forEach(b=>b.addEventListener('click',()=>setTool(b.dataset.tool)));
+$('generalCards').addEventListener('click',e=>{const assign=e.target.closest('[data-assign-general]'),select=e.target.closest('[data-select-general]');if(assign)assignGeneral(assign.dataset.assignGeneral);else if(select)selectGeneralGroup(select.dataset.selectGeneral)});
+$('dismissGeneral').onclick=dismissGeneral;
+$('airliftQuick').onclick=()=>{setTool('airlift');notify('Tik op een vrije landingsplek op het slagveld. Kosten: 45 credits; 10 machinegunners.');};
+$('openGenerals').onclick=()=>{const panel=$('generalsPanel');panel.open=true;panel.scrollIntoView({behavior:'smooth',block:'start'});notify('Selecteer een groep troepen en wijs een vrijgespeelde generaal toe.')};
+$('all').onclick=()=>{G.selected=new Set(G.units.filter(u=>u.team==='blue'&&!u.loadedInto).map(u=>u.id));refresh()};$('cancel').onclick=()=>{G.selected.clear();refresh()};$('hold').onclick=()=>{for(const u of selected()){u.order=null;u.path=[];u.attackOrder=null;u.engagementMode='guard';u.guardFacing=null}notify('Troepen houden hun huidige positie vast.')};$('retreat').onclick=()=>{retreat();notify('Terugtrekbevel richting eigen basis.')};$('load').onclick=()=>{let own=selected(),trucks=own.filter(u=>u.type==='truck'),troops=own.filter(u=>u.type!=='truck'&&u.type!=='tank'&&u.type!=='artillery');let loaded=0;for(const p of troops){let t=trucks.sort((a,b)=>dist(a,p)-dist(b,p))[0]||G.units.filter(u=>u.team==='blue'&&u.type==='truck'&&dist(u,p)<75).sort((a,b)=>dist(a,p)-dist(b,p))[0];if(t&&t.cargo.length<6&&dist(t,p)<85){p.loadedInto=t.id;p.order=null;p.path=[];t.cargo.push(p.id);G.selected.delete(p.id);loaded++}}notify(loaded+' soldaten ingestapt. Selecteer truck en druk Uitstappen.');refresh()};$('unload').onclick=()=>{let count=0;for(const t of selected().filter(u=>u.type==='truck')){for(const uid of t.cargo){let u=G.units.find(x=>x.id===uid);if(u){u.loadedInto=null;for(let k=0;k<18;k++){let a=rnd(0,T),r=rnd(23,65),x=t.x+Math.cos(a)*r,y=t.y+Math.sin(a)*r;if(free(x,y,stats[u.type].r)){u.x=x;u.y=y;break}}count++}}t.cargo=[]}notify(count+' soldaten uitgestapt.')};$('upgrade').onclick=()=>{if(G.cash<8)return notify('8 credits nodig.');G.cash-=8;G.bases.blue.hp+=230;G.bases.blue.max+=230;notify('Basis versterkt: +230 HP.');refresh()};$('pause').onclick=()=>{if(!G?.playing)return;G.paused=!G.paused;refresh()};$('restart').onclick=()=>{G.playing=false;$('modalTitle').textContent='NIEUWE OPERATIE';$('modalDesc').textContent='Kies een slagveld en moeilijkheidsgraad.';$('start').textContent='START OPERATIE →';$('overlay').style.display='flex'};$('start').onclick=()=>{newGame();G.playing=true;$('overlay').style.display='none';setTool('rifle')};$('sound').onclick=()=>{sound=!sound;$('sound').textContent='Geluid: '+(sound?'AAN':'UIT')};
+window.addEventListener('keydown',e=>{if(e.target.tagName==='SELECT')return;if(e.key==='Control'&&!e.repeat&&G?.playing&&stats[tool]&&typeAvailable(tool)){e.preventDefault();batchSpawn(G.bases.blue.x+60,G.bases.blue.y);return;}if(e.code==='Space'){e.preventDefault();$('pause').click()}if(e.key.toLowerCase()==='q')rotation-=Math.PI/12;if(e.key.toLowerCase()==='e')rotation+=Math.PI/12;if(e.key.toLowerCase()==='h')$('hold').click();if(e.key.toLowerCase()==='m')$('sound').click();if(e.key.toLowerCase()==='r'&&!e.repeat&&G?.playing){retreating=true;retreat();}});window.addEventListener('keyup',e=>{if(e.key.toLowerCase()==='r'&&retreating&&G){retreating=false;for(const u of selected()){u.order=null;u.path=[]}notify('Terugtrekken gestopt; positie vasthouden.')}});window.addEventListener('blur',()=>{if(retreating&&G){retreating=false;for(const u of selected()){u.order=null;u.path=[]}}});window.addEventListener('resize',resize);$('gameMode').dispatchEvent(new Event('change'));preview();newGame();resize();function frame(t){let dt=Math.min((t-prev)/1000||0,.05);prev=t;tick(dt);render();requestAnimationFrame(frame)}requestAnimationFrame(frame);
+})();
+</script></body></html>
